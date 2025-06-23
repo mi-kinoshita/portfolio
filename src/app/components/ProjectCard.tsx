@@ -66,7 +66,7 @@ const ProjectCard = ({
           <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
             {subDescription}
           </p>
-        </div>{" "}
+        </div>
         {/* /flex-grow */}
         {/* リンク/アイコンセクション */}
         {/* App StoreとGoogle Playリンクが存在すれば表示、なければ通常のリンクを表示 */}
@@ -109,7 +109,7 @@ const ProjectCard = ({
             </Link>
           )
         )}
-      </div>{" "}
+      </div>
       {/* /md:w-1/2 (left column) */}
       {/* 右側のカラム: プロジェクト画像 - md以上でのみ表示、モバイルで非表示 */}
       <div className="md:w-1/2 flex-shrink-0 relative w-full h-64 md:h-80 rounded-lg overflow-hidden hidden md:block">

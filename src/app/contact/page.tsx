@@ -4,8 +4,8 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // = を削除
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons"; // = を削除
 import {
   faDribbble,
   faLinkedinIn,
@@ -15,19 +15,19 @@ import {
 export default function ContactPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-neutral-950 text-gray-900 dark:text-gray-100 font-sans">
+      <Header /> {/* Header が実際に使われていなかったので追加 */}
       <main className="flex-grow flex items-center justify-center py-16 md:py-24 lg:py-32 px-6">
         <section className="max-w-2xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 leading-tight">
             Get in Touch
           </h1>
           <p className="text-lg md:text-xl leading-relaxed mb-12 text-gray-700 dark:text-gray-300">
-            Feel free to reach out with any questions or inquiries.I'll be in
-            touch shortly.
+            Feel free to reach out with any questions or inquiries. You can
+            contact me using the form below or via social media.
           </p>
 
-          {/* Formspree と連携するように action 属性と隠しフィールドを追加 */}
           <form
-            action="https://formspree.io/f/mdkzwewl" // ここをあなたの Formspree フォームのURLに置き換えてください！
+            action="https://formspree.io/f/yourformid"
             method="POST"
             className="bg-neutral-100 dark:bg-neutral-950 p-8 rounded-lg shadow-md mb-12 border border-gray-200 dark:border-gray-700"
           >
@@ -36,7 +36,7 @@ export default function ContactPage() {
                 htmlFor="name"
                 className="block text-sm font-medium mb-2 text-gray-900 dark:text-gray-100"
               >
-                Name*
+                Name
               </label>
               <input
                 type="text"
@@ -44,7 +44,7 @@ export default function ContactPage() {
                 name="name"
                 className="w-full p-3 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-neutral-900 text-gray-900 dark:text-gray-100 focus:ring-blue-600 focus:border-blue-600 outline-none"
                 placeholder="Your Name"
-                required // 必須フィールドにする
+                required
               />
             </div>
             <div className="mb-6 text-left">
@@ -52,7 +52,7 @@ export default function ContactPage() {
                 htmlFor="email"
                 className="block text-sm font-medium mb-2 text-gray-900 dark:text-gray-100"
               >
-                Email Address*
+                Email Address
               </label>
               <input
                 type="email"
@@ -60,7 +60,7 @@ export default function ContactPage() {
                 name="email"
                 className="w-full p-3 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-neutral-900 text-gray-900 dark:text-gray-100 focus:ring-blue-600 focus:border-blue-600 outline-none"
                 placeholder="you@example.com"
-                required // 必須フィールドにする
+                required
               />
             </div>
             <div className="mb-6 text-left">
@@ -68,7 +68,7 @@ export default function ContactPage() {
                 htmlFor="message"
                 className="block text-sm font-medium mb-2 text-gray-900 dark:text-gray-100"
               >
-                Message*
+                Message
               </label>
               <textarea
                 id="message"
@@ -76,10 +76,9 @@ export default function ContactPage() {
                 rows={5}
                 className="w-full p-3 rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-neutral-900 text-gray-900 dark:text-gray-100 focus:ring-blue-600 focus:border-blue-600 outline-none resize-y"
                 placeholder="Enter your message here..."
-                required // 必須フィールドにする
+                required
               ></textarea>
             </div>
-            {/* Formspree のスパム対策用隠しフィールド */}
             <input type="text" name="_gotcha" style={{ display: "none" }} />
 
             <button
@@ -89,9 +88,46 @@ export default function ContactPage() {
               Send Message
             </button>
           </form>
+
+          {/* Header と Footer が使われるように追加 (必要に応じて) */}
+          <p className="text-xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+            Or contact me directly:
+          </p>
+          <div className="flex items-center justify-center mb-8">
+            <FontAwesomeIcon
+              icon={faEnvelope}
+              className="w-6 h-6 text-blue-600 dark:text-blue-400 mr-3"
+            />
+            <a
+              href="mailto:your.email@example.com"
+              className="text-lg font-medium text-blue-600 dark:text-blue-400 hover:underline transition-colors"
+            >
+              your.email@example.com
+            </a>
+          </div>
+
+          <div className="flex justify-center space-x-6">
+            <Link
+              href="#"
+              className="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              <FontAwesomeIcon icon={faDribbble} className="w-8 h-8" />
+            </Link>
+            <Link
+              href="#"
+              className="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              <FontAwesomeIcon icon={faLinkedinIn} className="w-8 h-8" />
+            </Link>
+            <Link
+              href="#"
+              className="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              <FontAwesomeIcon icon={faGithub} className="w-8 h-8" />
+            </Link>
+          </div>
         </section>
       </main>
-
       <Footer />
     </div>
   );

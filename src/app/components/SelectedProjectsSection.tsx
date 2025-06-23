@@ -11,7 +11,7 @@ const SelectedProjectsSection = () => {
       year: "01", // プロジェクト番号として使用
       title: "Prythm", // タイトル
       description:
-        " Discover a gentle way to build daily self-care habits. Prythm helps you stay in tune with your emotions and routines—so you can feel your rhythm, every day. It's a self-care focused To-Do app designed for peace, pacing, and remembering you matter.",
+        " Discover a gentle way to build daily self-care habits. Prythm helps you stay in tune with your emotions and routines—so you can feel your rhythm, every day. It is a self-care focused To-Do app designed for peace, pacing, and remembering you matter.",
       subDescription:
         "Features include: self-care based task lists, gentle habit tracking with calming calendar views, mood-friendly themes (light, dark, warm beige), fully offline functionality (no accounts, no ads, no pressure), and optional kind reminders. Ideal for those seeking a daily rhythm of kindness to themselves, especially those prone to overwork, overthinking, or burnout.", // サブ説明を詳細に更新
       appStoreLink:
@@ -24,9 +24,9 @@ const SelectedProjectsSection = () => {
       year: "02",
       title: "LunaTalk",
       description:
-        "LunaTalk is your friendly AI chat partner for practicing real-life Japanese. Talk with Luna in natural conversations, save useful words to your vocabulary list, and customize your learning level and style. Whether you’re a beginner or advanced learner, Luna helps you stay motivated every day!", // LunaTalkの主要な説明
+        "LunaTalk is your friendly AI chat partner for practicing real-life Japanese. Talk with Luna in natural conversations, save useful words to your vocabulary list, and customize your learning level and style. Whether you are a beginner or advanced learner, Luna helps you stay motivated every day!", // LunaTalkの主要な説明
       subDescription:
-        "New Features: Choose Your Chat Theme, Switch Learning Levels, Save Vocabulary While You Chat, Get Daily Practice Reminders, “Today’s Chat Theme” for Quick Practice, Fun Messages from Luna to Keep You Going! Whether you're preparing for a trip, a test, or just want to get better at speaking, Luna makes learning Japanese simple, fun, and interactive.",
+        "New Features: Choose Your Chat Theme, Switch Learning Levels, Save Vocabulary While You Chat, Get Daily Practice Reminders, “Today’s Chat Theme” for Quick Practice, Fun Messages from Luna to Keep You Going! Whether you are preparing for a trip, a test, or just want to get better at speaking, Luna makes learning Japanese simple, fun, and interactive.",
       appStoreLink: "https://apps.apple.com/us/app/lunatalk/id6744715809", // あなたのApp Storeリンク
       googlePlayLink:
         "https://play.google.com/store/apps/details?id=com.miadesign.lunaTalk", // あなたのGoogle Playリンク

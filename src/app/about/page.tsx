@@ -31,12 +31,12 @@ export default function AboutPage() {
           </div>
 
           <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
-            Hello, I'm Mia. I am a Product Designer with over 20 years of design
-            experience, including 8+ years as a freelance creative lead. My
-            recent work focuses on AI-integrated UX, conversational interfaces,
-            and scalable systems, with a strong emphasis on behavioral design
-            and measurable impact. I've driven significant results, including
-            45% sales growth and 1.8x CVR improvements.
+            Hello, I am Mia. I am a Product Designer with over 20 years of
+            design experience, including 8+ years as a freelance creative lead.
+            My recent work focuses on AI-integrated UX, conversational
+            interfaces, and scalable systems, with a strong emphasis on
+            behavioral design and measurable impact. I have driven significant
+            results, including 45% sales growth and 1.8x CVR improvements.
           </p>
 
           <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
@@ -49,7 +49,7 @@ export default function AboutPage() {
           </p>
 
           <p className="text-lg md:text-xl leading-relaxed mb-6 text-gray-700 dark:text-gray-300">
-            I'm passionate about creating human-centered mobile applications
+            I am passionate about creating human-centered mobile applications
             that blend conversational AI, behavioral science, and global
             usability. My background includes establishing scalable product
             frameworks, directing go-to-market strategies, and evaluating
