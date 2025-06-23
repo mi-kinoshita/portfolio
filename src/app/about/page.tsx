@@ -1,8 +1,6 @@
 // app/about/page.tsx
 "use client";
 
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -81,8 +79,6 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

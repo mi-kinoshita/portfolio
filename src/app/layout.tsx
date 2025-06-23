@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "./contexts/ThemeContext";
-import Header from "./components/Header";
+import { ThemeProvider } from "./contexts/ThemeContext"; // ThemeProviderをインポート
+import Header from "./components/Header"; // Headerをインポート
+import Footer from "./components/Footer"; // Footerをインポート
 
 export const metadata: Metadata = {
-  title: "Mia",
-  description: "A minimal portfolio website.",
+  title: "Your Portfolio",
+  description:
+    "A minimal portfolio website built with Next.js and Tailwind CSS.",
 };
 
 export default function RootLayout({
@@ -14,12 +16,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body>
         <ThemeProvider>
           <div className="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 min-h-screen">
-            <Header />
+            <Header /> {/* Headerをここでレンダリング */}
             {children}
+            <Footer /> {/* Footerをここでレンダリング */}
           </div>
         </ThemeProvider>
       </body>

@@ -1,6 +1,4 @@
 // NewsletterSection.tsx
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons"; // 封筒のアイコン
 
 const NewsletterSection = () => {
   // フォーム送信時の処理 (ここでは仮の処理)

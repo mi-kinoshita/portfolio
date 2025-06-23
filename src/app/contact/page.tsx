@@ -1,8 +1,5 @@
 // app/contact/page.tsx
 "use client";
-
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // = を削除
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons"; // = を削除
@@ -15,7 +12,6 @@ import {
 export default function ContactPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-neutral-950 text-gray-900 dark:text-gray-100 font-sans">
-      <Header /> {/* Header が実際に使われていなかったので追加 */}
       <main className="flex-grow flex items-center justify-center py-16 md:py-24 lg:py-32 px-6">
         <section className="max-w-2xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 leading-tight">
@@ -128,7 +124,6 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

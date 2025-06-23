@@ -1,8 +1,5 @@
 // SelectedProjectsSection.tsx
-import Link from "next/link";
 import ProjectCard from "./ProjectCard";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const SelectedProjectsSection = () => {
   // 仮のプロジェクトデータ (画像パス、タイトル、説明、subDescriptionはご自身のものに置き換えてください)

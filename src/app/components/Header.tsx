@@ -10,7 +10,6 @@ import {
   faMoon,
   faBars,
   faTimes,
-  faPlay,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
