@@ -21,13 +21,13 @@ const HeroSection = () => {
         emerging technologies into thoughtful, resilient products.
       </p>
 
-      {/* アプリストアアイコンのコンテナ */}
-      {/* 「flex-row」クラスがアイコンを横並びにする役割を果たします。 */}
-      {/* 「flex-wrap」は、画面幅が狭い場合にアイコンを次の行に折り返します。 */}
       <div className="flex flex-row flex-wrap gap-4 items-start mb-8">
         {/* mb-8で下余白を追加 */}
         {/* App Store アイコン */}
-        <Link href="#" passHref>
+        <Link
+          href="https://apps.apple.com/us/developer/miho-kinoshita/id1807919240"
+          passHref
+        >
           {/* w-40 を w-36 に変更し、iPhone SEなどの狭い画面でも横並びになるように調整 */}
           <div className="relative w-36 h-12 md:w-40">
             <Image
@@ -40,7 +40,10 @@ const HeroSection = () => {
           </div>
         </Link>
         {/* Google Play アイコン */}
-        <Link href="#" passHref>
+        <Link
+          href="https://play.google.com/store/apps/developer?id=Mia+Design+Studio"
+          passHref
+        >
           {/* w-40 を w-36 に変更し、iPhone SEなどの狭い画面でも横並びになるように調整 */}
           <div className="relative w-36 h-12 md:w-40">
             <Image

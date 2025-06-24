@@ -84,44 +84,6 @@ export default function ContactPage() {
               Send Message
             </button>
           </form>
-
-          {/* Header と Footer が使われるように追加 (必要に応じて) */}
-          <p className="text-xl font-bold mb-6 text-gray-900 dark:text-gray-100">
-            Or contact me directly:
-          </p>
-          <div className="flex items-center justify-center mb-8">
-            <FontAwesomeIcon
-              icon={faEnvelope}
-              className="w-6 h-6 text-blue-600 dark:text-blue-400 mr-3"
-            />
-            <a
-              href="mailto:your.email@example.com"
-              className="text-lg font-medium text-blue-600 dark:text-blue-400 hover:underline transition-colors"
-            >
-              your.email@example.com
-            </a>
-          </div>
-
-          <div className="flex justify-center space-x-6">
-            <Link
-              href="#"
-              className="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            >
-              <FontAwesomeIcon icon={faDribbble} className="w-8 h-8" />
-            </Link>
-            <Link
-              href="#"
-              className="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            >
-              <FontAwesomeIcon icon={faLinkedinIn} className="w-8 h-8" />
-            </Link>
-            <Link
-              href="#"
-              className="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            >
-              <FontAwesomeIcon icon={faGithub} className="w-8 h-8" />
-            </Link>
-          </div>
         </section>
       </main>
     </div>
