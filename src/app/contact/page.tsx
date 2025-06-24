@@ -10,12 +10,11 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <p className="text-lg md:text-xl leading-relaxed mb-12 text-gray-700 dark:text-gray-300">
-            Feel free to reach out with any questions or inquiries. You can
-            contact me using the form below or via social media.
+            Feel free to reach out with any questions or inquiries.
           </p>
 
           <form
-            action="https://formspree.io/f/yourformid"
+            action="https://formspree.io/f/mdkzwewl"
             method="POST"
             className="bg-neutral-100 dark:bg-neutral-950 p-8 rounded-lg shadow-md mb-12 border border-gray-200 dark:border-gray-700"
           >

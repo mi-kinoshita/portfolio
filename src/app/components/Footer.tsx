@@ -16,6 +16,7 @@ const Footer = () => {
           <Link
             href="/contact"
             className="hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors"
+            target="_blank"
           >
             <FontAwesomeIcon icon={faEnvelope} className="w-8 h-8" />
             {/* w-8 h-8 を追加してアイコンサイズを指定 */}
@@ -23,12 +24,14 @@ const Footer = () => {
           <Link
             href="https://x.com/mia_jpeg"
             className="hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors"
+            target="_blank"
           >
             <FontAwesomeIcon icon={faXTwitter} className="w-8 h-8" />
           </Link>
           <Link
             href="www.linkedin.com/in/miho-kinoshita"
             className="hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors"
+            target="_blank"
           >
             <FontAwesomeIcon icon={faLinkedin} className="w-8 h-8" />
           </Link>

@@ -27,6 +27,7 @@ const HeroSection = () => {
         <Link
           href="https://apps.apple.com/us/developer/miho-kinoshita/id1807919240"
           passHref
+          target="_blank"
         >
           {/* w-40 を w-36 に変更し、iPhone SEなどの狭い画面でも横並びになるように調整 */}
           <div className="relative w-36 h-12 md:w-40">
@@ -43,6 +44,7 @@ const HeroSection = () => {
         <Link
           href="https://play.google.com/store/apps/developer?id=Mia+Design+Studio"
           passHref
+          target="_blank"
         >
           {/* w-40 を w-36 に変更し、iPhone SEなどの狭い画面でも横並びになるように調整 */}
           <div className="relative w-36 h-12 md:w-40">

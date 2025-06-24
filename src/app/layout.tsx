@@ -5,9 +5,9 @@ import Header from "./components/Header"; // Headerをインポート
 import Footer from "./components/Footer"; // Footerをインポート
 
 export const metadata: Metadata = {
-  title: "Your Portfolio",
+  title: "Mia Design Studio",
   description:
-    "A minimal portfolio website built with Next.js and Tailwind CSS.",
+    "Crafting Clarity at Scale - I design scalable, human-centered experiences that bring clarity to complexity.",
 };
 
 export default function RootLayout({
