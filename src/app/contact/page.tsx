@@ -1,13 +1,5 @@
 // app/contact/page.tsx
 "use client";
-import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // = を削除
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons"; // = を削除
-import {
-  faDribbble,
-  faLinkedinIn,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
 
 export default function ContactPage() {
   return (
