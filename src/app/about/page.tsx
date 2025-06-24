@@ -24,6 +24,7 @@ export default function AboutPage() {
                 layout="fill"
                 objectFit="cover"
                 className="rounded-full"
+                unoptimized={true}
               />
             </div>
           </div>

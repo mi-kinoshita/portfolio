@@ -43,6 +43,7 @@ const Header = () => {
               layout="fill"
               objectFit="cover"
               className="rounded-full"
+              unoptimized={true}
             />
           </div>
 
@@ -125,6 +126,7 @@ const Header = () => {
                 layout="fill"
                 objectFit="cover"
                 className="rounded-full"
+                unoptimized={true}
               />
             </div>
           </div>

@@ -54,6 +54,7 @@ const ProjectCard = ({
               layout="fill"
               objectFit="cover"
               className="rounded-lg"
+              unoptimized={true}
             />
           </div>
 
@@ -119,6 +120,7 @@ const ProjectCard = ({
           layout="fill"
           objectFit="cover"
           className="rounded-lg"
+          unoptimized={true}
         />
       </div>
     </div>

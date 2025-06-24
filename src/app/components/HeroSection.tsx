@@ -35,6 +35,7 @@ const HeroSection = () => {
               alt="Download on the App Store"
               layout="fill"
               objectFit="contain"
+              unoptimized={true}
             />
           </div>
         </Link>
@@ -47,6 +48,7 @@ const HeroSection = () => {
               alt="Get it on Google Play"
               layout="fill"
               objectFit="contain"
+              unoptimized={true}
             />
           </div>
         </Link>
