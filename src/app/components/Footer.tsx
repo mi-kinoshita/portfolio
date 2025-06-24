@@ -28,7 +28,7 @@ const Footer = () => {
             <FontAwesomeIcon icon={faXTwitter} className="w-8 h-8" />
           </Link>
           <Link
-            href="https://swww.linkedin.com/in/miho-kinoshita"
+            href="https://www.linkedin.com/in/miho-kinoshita"
             className="hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors"
             target="_blank"
           >
