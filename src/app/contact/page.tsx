@@ -7,10 +7,12 @@ export default function ContactPage() {
       <main className="flex-grow flex items-center justify-center py-16 md:py-24 lg:py-32 px-6">
         <section className="max-w-2xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 leading-tight">
-            Get in Touch
+            Let&apos;s Create Something Amazing Together!
           </h1>
           <p className="text-lg md:text-xl leading-relaxed mb-12 text-gray-700 dark:text-gray-300">
-            Feel free to reach out with any questions or inquiries.
+            Have a project in mind, a question about design, or just want to
+            chat? I&apos;d love to hear from you! Please fill out the form
+            below, and I&apos;ll get back to you as soon as possible.
           </p>
 
           <form
