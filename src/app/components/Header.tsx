@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image"; // Imageコンポーネントをインポート
+import Image from "next/image";
 import { useTheme } from "../contexts/ThemeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -18,15 +18,11 @@ const Header = () => {
 
   return (
     <header className="py-4 relative z-10">
-      {/* メインヘッダーコンテナのFlexboxの振る舞いをモバイルとデスクトップで分ける */}
-      {/* モバイルではjustify-startにし、タイトルはflex-growで中央に。デスクトップではjustify-betweenを維持 */}
       <div className="max-w-4xl mx-auto px-6 flex items-center bg-transparent justify-start md:justify-between">
-        {/* 左側のグループ: モバイルメニューボタン (アバターとサイト名はモバイル時にトグル内へ移動) */}
-        <div className="flex items-center gap-2 z-20 flex-shrink-0 md:w-1/3 md:justify-start">
-          {/* モバイルメニューボタン (mdより小さい画面で表示) */}
+        <div className="flex items-center gap-2 z-20 flex-shrink-0 md:justify-start">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-full  text-gray-900 dark:text-gray-100 ml-[-0.5rem] hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            className="md:hidden p-2 rounded-full  text-gray-900 dark:text-gray-100 ml-[-0.5rem] hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             aria-label="Toggle mobile menu"
           >
             <FontAwesomeIcon
@@ -35,10 +31,9 @@ const Header = () => {
             />
           </button>
 
-          {/* アバター画像 (デスクトップでのみ表示) */}
           <div className="relative w-10 h-10 rounded-full overflow-hidden bg-amber-100 dark:bg-amber-100 flex items-center justify-center flex-shrink-0 hidden md:flex">
             <Image
-              src="/images/avatar.png" // publicディレクトリ直下に画像を配置
+              src="/images/avatar.png"
               alt="Avatar"
               layout="fill"
               objectFit="cover"
@@ -47,7 +42,6 @@ const Header = () => {
             />
           </div>
 
-          {/* サイト名またはロゴ (デスクトップでのみ表示) */}
           <Link
             href="/"
             className="hidden md:block text-xl font-bold text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
@@ -56,23 +50,30 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* モバイルタイトル (モバイルでのみ表示し、中央に配置) */}
-        {/* flex-grow を使って中央のスペースを占有し、text-center でテキストを中央寄せ */}
         <Link
           href="/"
           className="md:hidden flex-grow text-center text-xl font-bold text-gray-900 dark:text-gray-100"
-          onClick={() => setIsMobileMenuOpen(false)} // クリックでメニューを閉じる
+          onClick={() => setIsMobileMenuOpen(false)}
         >
           Mia Design Studio
         </Link>
 
         {/* デスクトップナビゲーション（中央寄せ、md以上の画面で表示） */}
-        <nav className="hidden md:flex flex-grow justify-center space-x-8 md:w-1/3">
+        {/* md:w-1/3 を削除し、flex-grow を使って残りのスペースを占有し、その中で中央寄せにする */}
+        <nav className="hidden md:flex flex-grow justify-center space-x-8">
+          {" "}
+          {/* md:w-1/3 を削除 */}
           <Link
             href="/about"
             className="text-lg font-medium text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
           >
             About
+          </Link>
+          <Link
+            href="/design-process"
+            className="text-lg font-medium text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+          >
+            Process
           </Link>
           <Link
             href="/#projects"
@@ -89,35 +90,38 @@ const Header = () => {
         </nav>
 
         {/* 右側の要素: ダークモード切り替えボタン (デスクトップ用) */}
-        <div className="flex items-center z-20 flex-shrink-0 w-auto md:w-1/3 md:justify-end">
-          {/* flex-shrink-0 を追加 */}
+        {/* md:w-1/3 を削除し、コンテンツの幅に合わせる */}
+        <div className="flex items-center z-20 flex-shrink-0 w-auto md:justify-end">
+          {/* md:w-1/3 を削除 */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full  hover:bg-gray-200 hover:text-white dark:hover:bg-gray-700 transition-colors"
+            className="p-2 rounded-full transition-colors"
             aria-label="Toggle theme"
           >
             {theme === "light" ? (
               <FontAwesomeIcon
                 icon={faMoon}
-                className="w-5 h-5 text-gray-900 dark:text-gray-100"
+                className="w-5 h-5 text-gray-900 dark:text-gray-100  hover:text-neutral-600 dark:hover:text-neutral-700"
               />
             ) : (
               <FontAwesomeIcon
                 icon={faSun}
-                className="w-5 h-5 text-gray-900 dark:text-gray-100"
+                className="w-5 h-5 text-gray-900 dark:text-gray-100  hover:text-neutral-600 dark:hover:text-neutral-700"
               />
             )}
           </button>
         </div>
       </div>
 
-      {/* モバイルナビゲーション (メニューが開いている時に表示) */}
       <div
         className={`fixed top-0 left-0 h-full w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm transform transition-transform duration-300 ease-in-out z-10 md:hidden
           ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
+        onClick={() => setIsMobileMenuOpen(false)}
       >
-        <nav className="flex flex-col items-center justify-start h-full space-y-8 text-xl font-medium pt-16">
-          {/* モバイルメニュー内のアバターとサイトタイトルはそのまま維持（メニューのヘッダーとして機能） */}
+        <nav
+          className="flex flex-col items-center justify-start h-full space-y-8 text-xl font-medium pt-16"
+          onClick={(e) => e.stopPropagation()}
+        >
           <div className="flex flex-col items-center mb-8">
             <div className="relative w-16 h-16 rounded-full overflow-hidden bg-amber-100 dark:bg-amber-100 flex items-center justify-center flex-shrink-0 mb-4">
               <Image
@@ -129,13 +133,27 @@ const Header = () => {
                 unoptimized={true}
               />
             </div>
+            <Link
+              href="/"
+              className="text-2xl font-bold text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors mb-4"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Mia Design Studio
+            </Link>
           </div>
           <Link
             href="/about"
-            className="text-lg font-medium text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+            className="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             About
+          </Link>
+          <Link
+            href="/design-process"
+            className="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Process
           </Link>
           <Link
             href="/#projects"
