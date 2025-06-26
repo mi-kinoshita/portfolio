@@ -50,7 +50,8 @@ export default function DesignProcessPage() {
         </h2>
 
         <p className="text-lg md:text-xl leading-relaxed mb-12 text-gray-700 dark:text-gray-300">
-          Here's a detailed look at how we bring your ideas to life:
+          Here&apos;s a detailed look at how we bring your ideas to life:{" "}
+          {/* アポストロフィをエスケープ */}
         </p>
 
         {/* Process Steps */}
@@ -163,7 +164,8 @@ export default function DesignProcessPage() {
               7. Post-Launch Support / Follow-up
             </h3>
             <p className="text-base text-gray-700 dark:text-gray-300 mb-2">
-              <strong>Purpose:</strong> To monitor the project's performance
+              <strong>Purpose:</strong> To monitor the project&apos;s
+              performance {/* アポストロフィをエスケープ */}
               after launch, propose iterative improvements, and maintain a
               strong client relationship.
             </p>
@@ -203,7 +205,7 @@ export default function DesignProcessPage() {
               <li>
                 <strong>Brand Guidelines:</strong> Detailed rules for logo
                 usage, color palettes, typography, and imagery, reflecting the
-                brand's visual identity.
+                brand&apos;s visual identity. {/* アポストロフィをエスケープ */}
               </li>
               <li>
                 <strong>UI Component Library:</strong> Definition and usage
