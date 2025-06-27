@@ -1,13 +1,13 @@
 // app/design-process/page.tsx
 "use client";
 
-import Image from "next/image"; // Image component imported
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faMagnifyingGlass, // Discover用アイコン
-  faBullseye, // Define用アイコン
-  faPalette, // Design用アイコン
-  faRocket, // Deliver用アイコン
+  faMagnifyingGlass,
+  faBullseye,
+  faPalette,
+  faRocket,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function DesignProcessPage() {
@@ -19,7 +19,7 @@ export default function DesignProcessPage() {
         </h1>
 
         <p className="text-lg md:text-xl leading-relaxed mb-8 text-gray-700 dark:text-gray-300">
-          Mia Design Studio's design process is built to tackle complex
+          Mia Design Studio&apos;s design process is built to tackle complex
           challenges and deliver impactful, human-centered solutions. We
           prioritize transparent collaboration, ensuring every step aligns with
           your vision and business goals.
@@ -41,17 +41,16 @@ export default function DesignProcessPage() {
         <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-900 dark:text-gray-100">
           8-Step Design Process
         </h2>
-        {/* Add Design Process Image - Moved here */}
         <div className="relative w-full max-w-2xl h-auto mx-auto mb-12 rounded-lg overflow-hidden">
           <Image
-            src="/images/design-process.png" // Image path in public directory
+            src="/images/design-process.png"
             alt="Mia Design Studio Design Process Flow"
-            width={1200} // Adjust based on original image width
-            height={600} // Adjust based on original image height
-            layout="responsive" // Make it responsive
-            objectFit="contain" // Contain aspect ratio
+            width={1200}
+            height={600}
+            layout="responsive"
+            objectFit="contain"
             className="rounded-lg"
-            unoptimized={true} // Disable image optimization
+            unoptimized={true}
           />
         </div>
 
@@ -59,17 +58,15 @@ export default function DesignProcessPage() {
           Our design process is based on the powerful framework of the Double
           Diamond Theory. This is a human-centered approach consisting of four
           phases: Discover, Define, Design, and Deliver. In each phase, we
-          alternate between "divergent" (exploring broadly) and "convergent"
-          (focusing narrowly) thinking to provide innovative solutions that meet
-          true user needs.
+          alternate between &quot;divergent&quot; (exploring broadly) and
+          &quot;convergent&quot; (focusing narrowly) thinking to provide
+          innovative solutions that meet true user needs.
         </p>
 
-        {/* First Diamond: Problem Discovery & Definition (Problem Space) */}
         <h3 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
           1st Diamond: Discovery & Definition
         </h3>
 
-        {/* Divergent: Discover (Explore & Expand) */}
         <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700 mb-8">
           <h4 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
             <FontAwesomeIcon
@@ -84,7 +81,6 @@ export default function DesignProcessPage() {
           </p>
 
           <div className="space-y-6">
-            {/* Step 1 */}
             <div>
               <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                 1. Contact
@@ -100,7 +96,6 @@ export default function DesignProcessPage() {
               </p>
             </div>
 
-            {/* Step 2 */}
             <div>
               <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                 2. Discovery
@@ -118,7 +113,6 @@ export default function DesignProcessPage() {
           </div>
         </div>
 
-        {/* Convergent: Define (Define & Converge) */}
         <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700 mb-12">
           <h4 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
             <FontAwesomeIcon
@@ -133,7 +127,6 @@ export default function DesignProcessPage() {
             for the project.
           </p>
 
-          {/* Step 3 */}
           <div>
             <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
               3. Consultation
@@ -150,12 +143,10 @@ export default function DesignProcessPage() {
           </div>
         </div>
 
-        {/* Second Diamond: Solution Development & Delivery (Solution Space) */}
         <h3 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
           2nd Diamond: Design & Delivery
         </h3>
 
-        {/* Divergent: Develop (Develop & Expand) */}
         <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700 mb-8">
           <h4 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
             <FontAwesomeIcon
@@ -170,7 +161,6 @@ export default function DesignProcessPage() {
           </p>
 
           <div className="space-y-6">
-            {/* Step 4 */}
             <div>
               <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                 4. Concept Development
@@ -187,7 +177,6 @@ export default function DesignProcessPage() {
               </p>
             </div>
 
-            {/* Step 5 */}
             <div>
               <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                 5. Production
@@ -205,7 +194,6 @@ export default function DesignProcessPage() {
           </div>
         </div>
 
-        {/* Convergent: Deliver (Provide & Converge) */}
         <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700">
           <h4 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
             <FontAwesomeIcon
@@ -220,7 +208,6 @@ export default function DesignProcessPage() {
           </p>
 
           <div className="space-y-6">
-            {/* Step 6 */}
             <div>
               <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                 6. Delivery
@@ -236,7 +223,6 @@ export default function DesignProcessPage() {
               </p>
             </div>
 
-            {/* Step 7 */}
             <div>
               <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                 7. Post-Launch Support
@@ -265,7 +251,6 @@ export default function DesignProcessPage() {
               </ul>
             </div>
 
-            {/* Step 8 */}
             <div>
               <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
                 8. Design System
@@ -283,7 +268,8 @@ export default function DesignProcessPage() {
                 </li>
                 <li>
                   UI Component Library: Definition and usage instructions for
-                  reusable UI components (buttons, forms, navigation, etc.).
+                  reusable UI components (buttons, forms, navigation,
+                  &quot;etc.&quot;).
                 </li>
                 <li>
                   Style Guide: Comprehensive guidelines for developers, covering
