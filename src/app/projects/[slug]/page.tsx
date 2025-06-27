@@ -6,12 +6,11 @@ import { allProjects } from "../../../../lib/projects"; // プロジェクトデ
 import ProjectDetailClientContent from "./ProjectDetailClientContent"; // クライアントコンポーネントをインポート
 
 // ページコンポーネントのpropsの型を明示的に定義
-// searchParams も含めることで、Next.jsのPagePropsの完全な型シグネチャに合わせる
+// searchParams を削除することで、未使用変数によるエラーを回避
 interface ProjectDetailPageProps {
   params: {
     slug: string;
   };
-  searchParams?: { [key: string]: string | string[] | undefined }; // Optional: クエリパラメータ
 }
 
 // プロジェクトの詳細データを取得するための関数 (同期関数として維持)
@@ -31,9 +30,8 @@ export async function generateStaticParams() {
 // プロジェクト詳細ページコンポーネント
 export default async function ProjectDetailPage({
   params,
-  searchParams, // searchParams も受け取るようにする
 }: ProjectDetailPageProps) {
-  // 明示的に定義したインターフェースを使用
+  // searchParams を引数から削除
   const { slug } = params;
   const project = getProjectDetails(slug); // 同期関数なので await は不要
 
