@@ -1,18 +1,11 @@
 // app/projects/[slug]/page.tsx
-// 'use client' はこのファイルから削除し、サーバーコンポーネントとする
 
 import { allProjects } from "../../../../lib/projects"; // プロジェクトデータをインポート
-import ProjectDetailClientContent from "./ProjectDetailClientContent"; // 新しいクライアントコンポーネントをインポート
-
-// プロジェクトの詳細データを取得するための関数
-// 実際には、slugに基づいてデータベースやファイルシステムからデータを取得しますが、
-// 今回はインポートしたallProjects配列から検索します
+import ProjectDetailClientContent from "./ProjectDetailClientContent";
 async function getProjectDetails(slug: string) {
   return allProjects.find((project) => project.slug === slug);
 }
 
-// generateStaticParams 関数 (サーバーサイドで実行され、静的パスを生成)
-// `output: 'export'` が設定されている場合、動的ルートで必須です
 export async function generateStaticParams() {
   // allProjects 配列からすべてのプロジェクトのスラッグを取得し、パスとして返す
   return allProjects.map((project) => ({
