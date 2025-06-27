@@ -5,13 +5,12 @@ import { notFound } from "next/navigation"; // notFoundをインポート
 import { allProjects } from "../../../../lib/projects"; // プロジェクトデータをインポート
 import ProjectDetailClientContent from "./ProjectDetailClientContent"; // クライアントコンポーネントをインポート
 
-// ページコンポーネントのpropsの型を明示的に定義
-// searchParams を削除することで、未使用変数によるエラーを回避
-interface ProjectDetailPageProps {
-  params: {
-    slug: string;
-  };
-}
+// ページコンポーネントのpropsの型を明示的に定義する代わりに、関数引数に直接型を定義します。
+// interface ProjectDetailPageProps {
+//   params: {
+//     slug: string;
+//   };
+// }
 
 // プロジェクトの詳細データを取得するための関数 (同期関数として維持)
 function getProjectDetails(slug: string) {
@@ -28,10 +27,13 @@ export async function generateStaticParams() {
 }
 
 // プロジェクト詳細ページコンポーネント
+// paramsの型を引数に直接定義することで、型エラーを回避する可能性があります。
 export default async function ProjectDetailPage({
   params,
-}: ProjectDetailPageProps) {
-  // searchParams を引数から削除
+}: {
+  params: { slug: string };
+}) {
+  // ここで直接型を定義
   const { slug } = params;
   const project = getProjectDetails(slug); // 同期関数なので await は不要
 
