@@ -3,18 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"; // 右矢印アイコン
-import { faAppStoreIos } from "@fortawesome/free-brands-svg-icons/faAppStoreIos"; // App Storeアイコン
-import { faGooglePlay } from "@fortawesome/free-brands-svg-icons/faGooglePlay"; // Google Playアイコン
+// import { faAppStoreIos } from "@fortawesome/free-brands-svg-icons/faAppStoreIos"; // App Storeアイコンを削除
+// import { faGooglePlay } from "@fortawesome/free-brands-svg-icons/faGooglePlay"; // Google Playアイコンを削除
 
 interface ProjectCardProps {
   year: string; // プロジェクト番号として使用（例: "01"）
   title: string; // プロジェクト名（例: "PROJECT NAME"）
   description: string; // 主要な説明
   subDescription: string; // 「Scultped in...」のような詳細説明
-  link?: string; // リンクはオプションにする
+  link?: string; // プロジェクト詳細ページへのリンクをオプションに変更
   imageUrl: string;
-  appStoreLink?: string; // App Storeリンクを追加
-  googlePlayLink?: string; // Google Playリンクを追加
+  // appStoreLink?: string; // App Storeリンクを削除
+  // googlePlayLink?: string; // Google Playリンクを削除
 }
 
 const ProjectCard = ({
@@ -24,9 +24,9 @@ const ProjectCard = ({
   subDescription,
   link,
   imageUrl,
-  appStoreLink,
-  googlePlayLink,
-}: ProjectCardProps) => {
+}: // appStoreLink, // 削除
+// googlePlayLink, // 削除
+ProjectCardProps) => {
   return (
     // メインコンテナ: mdで横並び、items-start を items-stretch に変更して高さを揃える
     <div className="flex flex-col md:flex-row items-start md:items-stretch gap-6 md:gap-12 py-4 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
@@ -69,38 +69,14 @@ const ProjectCard = ({
           </p>
         </div>
         {/* /flex-grow */}
-        {/* リンク/アイコンセクション */}
-        {/* App StoreとGoogle Playリンクが存在すれば表示、なければ通常のリンクを表示 */}
-        {appStoreLink || googlePlayLink ? (
-          <div className="flex flex-row flex-wrap gap-10 items-center mt-auto">
-            {appStoreLink && (
-              <Link
-                href={appStoreLink}
-                target="_blank"
-                passHref
-                className="text-gray-900 dark:text-gray-100 hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors"
-              >
-                {/* w-20 h-20 を text-[80px] に変更してフォントサイズでアイコンを大きくする */}
-                <FontAwesomeIcon icon={faAppStoreIos} className="text-[25px]" />
-              </Link>
-            )}
-            {googlePlayLink && (
-              <Link
-                href={googlePlayLink}
-                target="_blank"
-                passHref
-                className="text-gray-900 dark:text-gray-100 hover:text-neutral-600 dark:hover:text-neutral-400 transition-colors"
-              >
-                {/* w-20 h-20 を text-[80px] に変更してフォントサイズでアイコンを大きくする */}
-                <FontAwesomeIcon icon={faGooglePlay} className="text-[25px]" />
-              </Link>
-            )}
-          </div>
-        ) : (
-          link && (
+
+        {/* リンク/アイコンセクション - 常に詳細ページへのリンクを表示し、アプリストアリンクがあれば追加表示 */}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4 mt-auto mb-6">
+          {/* 詳細ページへの内部リンク - linkが存在する場合のみLinkコンポーネントをレンダリング */}
+          {link ? (
             <Link
               href={link}
-              className="text-blue-600 dark:text-blue-400 font-medium hover:underline inline-flex items-center group mt-auto"
+              className="text-neutral-800 dark:text-neutral-100 font-medium hover:underline inline-flex items-center group flex-shrink-0"
             >
               More shots from this project
               <FontAwesomeIcon
@@ -108,8 +84,46 @@ const ProjectCard = ({
                 className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"
               />
             </Link>
-          )
-        )}
+          ) : (
+            // linkが存在しない場合は「Coming Soon」と表示
+            <span className="text-gray-500 dark:text-gray-400 font-medium inline-flex items-center flex-shrink-0">
+              Coming Soon
+            </span>
+          )}
+
+          {/* アプリストアリンク（存在する場合のみ表示） - このセクションは完全に削除 */}
+          {/* {(appStoreLink || googlePlayLink) && (
+            <div className="flex flex-row gap-4 items-center sm:ml-4 flex-wrap">
+              {" "}
+              {appStoreLink && (
+                <Link
+                  href={appStoreLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  <FontAwesomeIcon
+                    icon={faAppStoreIos}
+                    className="text-[25px]"
+                  />
+                </Link>
+              )}
+              {googlePlayLink && (
+                <Link
+                  href={googlePlayLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  <FontAwesomeIcon
+                    icon={faGooglePlay}
+                    className="text-[25px]"
+                  />
+                </Link>
+              )}
+            </div>
+          )} */}
+        </div>
       </div>
       {/* /md:w-1/2 (left column) */}
       {/* 右側のカラム: プロジェクト画像 - md以上でのみ表示、モバイルで非表示 */}

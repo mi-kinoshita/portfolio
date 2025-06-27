@@ -1,7 +1,14 @@
 // app/design-process/page.tsx
 "use client";
 
-import Image from "next/image"; // Imageコンポーネントをインポート
+import Image from "next/image"; // Image component imported
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMagnifyingGlass, // Discover用アイコン
+  faBullseye, // Define用アイコン
+  faPalette, // Design用アイコン
+  faRocket, // Deliver用アイコン
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function DesignProcessPage() {
   return (
@@ -11,220 +18,292 @@ export default function DesignProcessPage() {
           Design Process
         </h1>
 
-        {/* デザインプロセスの画像を追加 */}
-        <div className="relative w-full max-w-2xl h-auto mx-auto mb-12 rounded-lg overflow-hidden">
-          <Image
-            src="/images/design-process.png" // publicディレクトリ直下の画像パス
-            alt="Mia Design Studio Design Process Flow"
-            width={1200} // 画像の元の幅に応じて調整
-            height={600} // 画像の元の高さに応じて調整
-            layout="responsive" // レスポンシブにする
-            objectFit="contain" // アスペクト比を維持して収める
-            className="rounded-lg"
-            unoptimized={true} // 画像最適化を無効化
-          />
-        </div>
-
         <p className="text-lg md:text-xl leading-relaxed mb-8 text-gray-700 dark:text-gray-300">
-          At Mia Design Studio, our design process is a structured yet flexible
-          journey, built to tackle complex challenges and deliver impactful,
-          human-centered solutions. We believe in transparent collaboration,
-          ensuring every step is aligned with your vision and business
-          objectives.
+          Mia Design Studio's design process is built to tackle complex
+          challenges and deliver impactful, human-centered solutions. We
+          prioritize transparent collaboration, ensuring every step aligns with
+          your vision and business goals.
         </p>
 
         <p className="text-lg md:text-xl leading-relaxed mb-12 text-gray-700 dark:text-gray-300">
           Having developed our own products, we deeply understand the challenges
-          and struggles you face. This unique perspective allows us to approach
+          and struggles you face. This unique perspective enables
           problem-solving with genuine empathy and a comprehensive understanding
           of your needs.
         </p>
 
         <p className="text-lg md:text-xl leading-relaxed mb-12 text-gray-700 dark:text-gray-300">
-          Our comprehensive approach covers the entire product lifecycle, from
-          initial concept to ongoing refinement and strategic evolution.
+          We offer a comprehensive approach that covers the entire product
+          lifecycle, from initial concept to ongoing refinement and strategic
+          evolution.
         </p>
 
         <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-900 dark:text-gray-100">
-          8 Step Design Process
+          8-Step Design Process
         </h2>
+        {/* Add Design Process Image - Moved here */}
+        <div className="relative w-full max-w-2xl h-auto mx-auto mb-12 rounded-lg overflow-hidden">
+          <Image
+            src="/images/design-process.png" // Image path in public directory
+            alt="Mia Design Studio Design Process Flow"
+            width={1200} // Adjust based on original image width
+            height={600} // Adjust based on original image height
+            layout="responsive" // Make it responsive
+            objectFit="contain" // Contain aspect ratio
+            className="rounded-lg"
+            unoptimized={true} // Disable image optimization
+          />
+        </div>
 
         <p className="text-lg md:text-xl leading-relaxed mb-12 text-gray-700 dark:text-gray-300">
-          Here&apos;s a detailed look at how we bring your ideas to life:{" "}
-          {/* アポストロフィをエスケープ */}
+          Our design process is based on the powerful framework of the Double
+          Diamond Theory. This is a human-centered approach consisting of four
+          phases: Discover, Define, Design, and Deliver. In each phase, we
+          alternate between "divergent" (exploring broadly) and "convergent"
+          (focusing narrowly) thinking to provide innovative solutions that meet
+          true user needs.
         </p>
 
-        {/* Process Steps */}
-        <div className="space-y-12">
-          {/* Step 1 */}
-          <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-              1. Contact / Initial Inquiry
-            </h3>
-            <p className="text-base text-gray-700 dark:text-gray-300 mb-2">
-              <strong>Purpose:</strong> To establish initial contact and
-              understand the basic needs and scope of your project.
-            </p>
-            <p className="text-base text-gray-700 dark:text-gray-300">
-              <strong>Content:</strong> This phase involves your first
-              reach-out, where we gather preliminary information about your
-              project, challenges, and goals through an inquiry form or direct
-              communication.
-            </p>
-          </div>
+        {/* First Diamond: Problem Discovery & Definition (Problem Space) */}
+        <h3 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+          1st Diamond: Discovery & Definition
+        </h3>
 
-          {/* Step 2 */}
-          <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-              2. Research / Discovery
-            </h3>
-            <p className="text-base text-gray-700 dark:text-gray-300 mb-2">
-              <strong>Purpose:</strong> To gain a deep understanding of your
-              business, target users, market landscape, and existing pain
-              points.
-            </p>
-            <p className="text-base text-gray-700 dark:text-gray-300">
-              <strong>Content:</strong> We conduct comprehensive research,
-              including market analysis, competitive benchmarking, user
-              interviews, surveys, and usability testing to uncover critical
-              insights and define project opportunities.
-            </p>
-          </div>
+        {/* Divergent: Discover (Explore & Expand) */}
+        <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700 mb-8">
+          <h4 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
+            <FontAwesomeIcon
+              icon={faMagnifyingGlass}
+              className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
+            />
+            Discover
+          </h4>
+          <p className="text-base text-gray-700 dark:text-gray-300 mb-4">
+            In this phase, we gather as much information and as many
+            perspectives as possible to broadly explore the overall problem.
+          </p>
 
-          {/* Step 3 */}
-          <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-              3. Consultation / Strategy Session
-            </h3>
-            <p className="text-base text-gray-700 dark:text-gray-300 mb-2">
-              <strong>Purpose:</strong> To synthesize research findings, define
-              project scope, establish clear objectives, and develop a strategic
-              roadmap.
-            </p>
-            <p className="text-base text-gray-700 dark:text-gray-300">
-              <strong>Content:</strong> Collaborative workshops and discussions
-              where we align on core strategies, prioritize features, define key
-              performance indicators (KPIs), and outline the project timeline.
-            </p>
-          </div>
+          <div className="space-y-6">
+            {/* Step 1 */}
+            <div>
+              <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                1. Contact
+              </h5>
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-1">
+                Purpose: To establish initial contact and understand the basic
+                needs and scope of your project.
+              </p>
+              <p className="text-sm text-gray-700 dark:text-gray-300">
+                Content: This phase involves your first reach-out, where we
+                gather preliminary information about your project, challenges,
+                and goals through an inquiry form or direct communication.
+              </p>
+            </div>
 
-          {/* Step 4 */}
-          <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-              4. Concept Development / Wireframing & Mockups
-            </h3>
-            <p className="text-base text-gray-700 dark:text-gray-300 mb-2">
-              <strong>Purpose:</strong> To translate strategy into tangible
-              design concepts, focusing on user flow, information architecture,
-              and visual direction.
-            </p>
-            <p className="text-base text-gray-700 dark:text-gray-300">
-              <strong>Content:</strong> Creation of low-fidelity wireframes,
-              detailed user flows, and high-fidelity mockups. We explore various
-              design solutions and gather early feedback to refine concepts.
-            </p>
-          </div>
-
-          {/* Step 5 */}
-          <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-              5. Production / Design & Development
-            </h3>
-            <p className="text-base text-gray-700 dark:text-gray-300 mb-2">
-              <strong>Purpose:</strong> To execute the approved design concepts,
-              building out the full user interface and experience.
-            </p>
-            <p className="text-base text-gray-700 dark:text-gray-300">
-              <strong>Content:</strong> This phase includes detailed UI design,
-              interaction design, prototyping, and close collaboration with
-              development teams to ensure design integrity during
-              implementation.
-            </p>
-          </div>
-
-          {/* Step 6 */}
-          <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-              6. Delivery / Handover
-            </h3>
-            <p className="text-base text-gray-700 dark:text-gray-300 mb-2">
-              <strong>Purpose:</strong> To formally transfer the completed
-              design assets and documentation to the client.
-            </p>
-            <p className="text-base text-gray-700 dark:text-gray-300">
-              <strong>Content:</strong> Provision of final design files,
-              interactive prototypes, asset libraries, and comprehensive
-              documentation for development teams, ensuring a smooth transition.
-            </p>
-          </div>
-
-          {/* Step 7 */}
-          <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-              7. Post-Launch Support / Follow-up
-            </h3>
-            <p className="text-base text-gray-700 dark:text-gray-300 mb-2">
-              <strong>Purpose:</strong> To monitor the project&apos;s
-              performance {/* アポストロフィをエスケープ */}
-              after launch, propose iterative improvements, and maintain a
-              strong client relationship.
-            </p>
-            <ul className="list-disc list-inside text-base text-gray-700 dark:text-gray-300 ml-4">
-              <li>
-                <strong>Performance Monitoring:</strong> Analyzing key metrics
-                such as website analytics, user behavior, and conversion rates.
-              </li>
-              <li>
-                <strong>Bug Fixing / Maintenance:</strong> Addressing any
-                post-launch issues and performing routine maintenance.
-              </li>
-              <li>
-                <strong>Iterative Improvements:</strong> Recommending
-                data-driven enhancements and considering new features based on
-                user feedback and performance data.
-              </li>
-              <li>
-                <strong>Client Relationship Management:</strong> Engaging in
-                regular communication to foster long-term partnerships.
-              </li>
-            </ul>
-          </div>
-
-          {/* Step 8 */}
-          <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-gray-100">
-              8. Design System / Guidelines Creation
-            </h3>
-            <p className="text-base text-gray-700 dark:text-gray-300 mb-2">
-              <strong>Purpose:</strong> To establish a unified set of
-              principles, components, and guidelines that ensure consistency,
-              efficiency, and scalability for future design and development
-              efforts.
-            </p>
-            <ul className="list-disc list-inside text-base text-gray-700 dark:text-gray-300 ml-4">
-              <li>
-                <strong>Brand Guidelines:</strong> Detailed rules for logo
-                usage, color palettes, typography, and imagery, reflecting the
-                brand&apos;s visual identity. {/* アポストロフィをエスケープ */}
-              </li>
-              <li>
-                <strong>UI Component Library:</strong> Definition and usage
-                instructions for reusable UI components (buttons, forms,
-                navigation, etc.).
-              </li>
-              <li>
-                <strong>Style Guide:</strong> Comprehensive guidelines for
-                developers, covering coding standards, accessibility
-                considerations, and implementation best practices.
-              </li>
-              <li>
-                <strong>Future Scalability:</strong> Empowering future design
-                expansion and streamlining workflows for multiple designers and
-                developers.
-              </li>
-            </ul>
+            {/* Step 2 */}
+            <div>
+              <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                2. Discovery
+              </h5>
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-1">
+                Purpose: To gain a deep understanding of your business, target
+                users, market, and existing pain points.
+              </p>
+              <p className="text-sm text-gray-700 dark:text-gray-300">
+                Content: We conduct market analysis, competitive benchmarking,
+                user interviews, surveys, and usability testing to uncover
+                critical insights and opportunities.
+              </p>
+            </div>
           </div>
         </div>
+
+        {/* Convergent: Define (Define & Converge) */}
+        <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700 mb-12">
+          <h4 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
+            <FontAwesomeIcon
+              icon={faBullseye}
+              className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
+            />
+            Define
+          </h4>
+          <p className="text-base text-gray-700 dark:text-gray-300 mb-4">
+            We analyze insights from the Discover phase to identify the most
+            critical challenges and opportunities, defining a clear direction
+            for the project.
+          </p>
+
+          {/* Step 3 */}
+          <div>
+            <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+              3. Consultation
+            </h5>
+            <p className="text-sm text-gray-700 dark:text-gray-300 mb-1">
+              Purpose: To synthesize research findings, define project scope,
+              establish clear goals, and formulate a strategic roadmap.
+            </p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">
+              Content: Through workshops and discussions, we align on
+              strategies, prioritize features, define KPIs, and outline the
+              project timeline.
+            </p>
+          </div>
+        </div>
+
+        {/* Second Diamond: Solution Development & Delivery (Solution Space) */}
+        <h3 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+          2nd Diamond: Design & Delivery
+        </h3>
+
+        {/* Divergent: Develop (Develop & Expand) */}
+        <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700 mb-8">
+          <h4 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
+            <FontAwesomeIcon
+              icon={faPalette}
+              className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
+            />
+            Design
+          </h4>
+          <p className="text-base text-gray-700 dark:text-gray-300 mb-4">
+            For the defined problem, we broadly explore diverse solutions and
+            ideas, seeking creative approaches.
+          </p>
+
+          <div className="space-y-6">
+            {/* Step 4 */}
+            <div>
+              <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                4. Concept Development
+              </h5>
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-1">
+                Purpose: To translate strategy into tangible design concepts,
+                focusing on user flow, information architecture, and visual
+                direction.
+              </p>
+              <p className="text-sm text-gray-700 dark:text-gray-300">
+                Content: We create wireframes, user flows, and mockups,
+                exploring various design solutions and gathering early feedback
+                to refine concepts.
+              </p>
+            </div>
+
+            {/* Step 5 */}
+            <div>
+              <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                5. Production
+              </h5>
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-1">
+                Purpose: To execute approved design concepts, building the full
+                user interface and experience.
+              </p>
+              <p className="text-sm text-gray-700 dark:text-gray-300">
+                Content: This phase includes detailed UI design, interaction
+                design, prototyping, and close collaboration with development
+                teams to ensure design integrity during implementation.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Convergent: Deliver (Provide & Converge) */}
+        <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700">
+          <h4 className="text-xl md:text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100 flex items-center">
+            <FontAwesomeIcon
+              icon={faRocket}
+              className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
+            />
+            Deliver
+          </h4>
+          <p className="text-base text-gray-700 dark:text-gray-300 mb-4">
+            We focus on the most viable and effective solutions, shaping them
+            into concrete products or services for release.
+          </p>
+
+          <div className="space-y-6">
+            {/* Step 6 */}
+            <div>
+              <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                6. Delivery
+              </h5>
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-1">
+                Purpose: To formally transfer completed design assets and
+                documentation to the client.
+              </p>
+              <p className="text-sm text-gray-700 dark:text-gray-300">
+                Content: Provision of final design files, prototypes, asset
+                libraries, and comprehensive documentation for development
+                teams, ensuring a smooth transition.
+              </p>
+            </div>
+
+            {/* Step 7 */}
+            <div>
+              <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                7. Post-Launch Support
+              </h5>
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-1">
+                Purpose: To monitor post-launch performance, propose
+                improvements, and maintain strong relationships.
+              </p>
+              <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300 ml-4">
+                <li>
+                  Performance Monitoring: Analyzing key metrics like website
+                  analytics, user behavior, and conversion rates.
+                </li>
+                <li>
+                  Bug Fixing / Maintenance: Addressing post-launch issues and
+                  performing routine maintenance.
+                </li>
+                <li>
+                  Iterative Improvements: Recommending data-driven enhancements
+                  and new features based on user feedback and performance data.
+                </li>
+                <li>
+                  Client Relationship Management: Engaging in regular
+                  communication to foster long-term partnerships.
+                </li>
+              </ul>
+            </div>
+
+            {/* Step 8 */}
+            <div>
+              <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+                8. Design System
+              </h5>
+              <p className="text-sm text-gray-700 dark:text-gray-300 mb-1">
+                Purpose: To establish unified principles, components, and
+                guidelines ensuring consistency, efficiency, and scalability for
+                future design and development efforts.
+              </p>
+              <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300 ml-4">
+                <li>
+                  Brand Guidelines: Detailed rules for logo usage, color
+                  palettes, typography, and imagery, reflecting the brand&apos;s
+                  visual identity.
+                </li>
+                <li>
+                  UI Component Library: Definition and usage instructions for
+                  reusable UI components (buttons, forms, navigation, etc.).
+                </li>
+                <li>
+                  Style Guide: Comprehensive guidelines for developers, covering
+                  coding standards, accessibility, and implementation best
+                  practices.
+                </li>
+                <li>
+                  Future Scalability: Enabling future design expansion and
+                  streamlining workflows for multiple designers and developers.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <p className="text-lg md:text-xl leading-relaxed mt-12 text-gray-700 dark:text-gray-300">
+          This Double Diamond framework allows us to not only create beautiful
+          designs but also to deliver meaningful, sustainable solutions for both
+          users and businesses.
+        </p>
       </section>
     </main>
   );
