@@ -175,22 +175,22 @@ export const allProjects: Project[] = [
     slug: "lunatalk-app",
     year: "02",
     title: "LunaTalk",
-    overview: "LunaTalk is your friendly AI chat partner for practicing real-life Japanese. Talk with Luna in natural conversations, save useful words to your vocabulary list, and customize your learning level and style. Whether you are a beginner or advanced learner, Luna helps you stay motivated every day!",
-    description: "LunaTalk is your friendly AI chat partner for practicing real-life Japanese. Talk with Luna in natural conversations, save useful words to your vocabulary list, and customize your learning level and style. Whether you are a beginner or advanced learner, Luna helps you stay motivated every day!",
-    subDescription: "New Features: Choose Your Chat Theme, Switch Learning Levels, Save Vocabulary While You Chat, Get Daily Practice Reminders, “Today’s Chat Theme” for Quick Practice, Fun Messages from Luna to Keep You Going! Whether you are preparing for a trip, a test, or just want to get better at speaking, Luna makes learning Japanese simple, fun, and interactive.",
+    overview: "LunaTalk is your personal AI chat partner for practicing real-life Japanese. Dive into natural conversations, save new vocabulary to your custom list, and adapt your learning experience with adjustable levels and styles. Luna makes daily Japanese practice simple, fun, and motivating for learners of all levels.",
+    description: "Engage in natural Japanese conversations with Luna, your AI chat partner. Seamlessly save vocabulary, customize learning levels, and get daily practice reminders. Ideal for anyone aiming to improve spoken Japanese for travel, exams, or daily use.",
+    subDescription: "Key features include: AI-powered conversational practice, instant vocabulary saving, customizable learning levels (beginner to advanced), diverse chat themes, daily practice reminders, and fun motivational messages from Luna. Stay motivated and build fluency through interactive, judgment-free practice.",
     imageUrl: "/images/lunatalk-cover.png",
     appStoreLink: "https://apps.apple.com/us/app/lunatalk/id6744715809",
     googlePlayLink: "https://play.google.com/store/apps/details?id=com.miadesign.lunaTalk",
-    // link: "/projects/lunatalk-app", // ★削除: 詳細ページが準備中のためリンクを削除
+    link: "/projects/lunatalk-app", // ★更新: 詳細ページへのリンクを有効化
     challenge: {
-      problem: "Traditional language learning apps lack natural conversational practice and feel monotonous.",
-      situation: "Learners need a flexible, engaging way to practice spoken Japanese at their own pace without judgment.",
-      necessary: "To provide an AI-powered conversational platform that adapts to user needs and fosters consistent practice."
+      problem: "Traditional language learning methods often lack opportunities for natural, judgment-free conversational practice, leading to stagnation in spoken fluency and motivation.",
+      situation: "Learners struggle to find affordable and flexible ways to engage in authentic Japanese dialogues, frequently feeling intimidated or bored by rigid curricula.",
+      necessary: "To create an accessible, adaptive AI-powered platform that simulates real conversations, encourages consistent practice, and provides personalized feedback to overcome learning plateaus."
     },
     goal: {
-      objectives: "Create a highly interactive and personalized Japanese conversational AI. Enhance user retention through engaging features and progress tracking. Support diverse learning styles and proficiency levels.",
-      metrics: "Daily active users (DAU), average session duration, vocabulary retention rate, positive user feedback on conversational fluency.",
-      impact: "Significantly improve users' confidence and fluency in spoken Japanese through regular, enjoyable practice."
+      objectives: "Develop an intuitive and engaging AI chat application that simulates natural Japanese conversations. Provide personalized learning paths and vocabulary management. Increase user confidence and fluency in spoken Japanese.",
+      metrics: "Average daily session duration, number of vocabulary words saved per user, user retention rates (especially for repeat conversations), self-reported confidence improvements.",
+      impact: "Enable users to practice Japanese speaking consistently and effectively, bridging the gap between theoretical knowledge and practical application, fostering a lifelong love for the language."
     },
     approach: [
       {
@@ -231,51 +231,52 @@ export const allProjects: Project[] = [
       },
     ],
     solution: {
-      description: "LunaTalk provides a dynamic and private environment for Japanese conversation practice. Its adaptive AI, intuitive vocabulary saving, and customizable learning themes make it a powerful tool for learners of all levels.",
-      images: ["/images/lunatalk-detail-1.jpeg", "/images/lunatalk-detail-2.jpeg"],
+      description: "LunaTalk provides a dynamic and private environment for Japanese conversation practice, accessible anytime, anywhere. Its adaptive AI, intuitive vocabulary saving, and customizable learning themes (e.g., 'city pop', 'anime') make it a powerful and personalized tool for learners of all levels. The minimalist design ensures a distraction-free experience, allowing users to fully immerse themselves in the conversation and focus on language acquisition.",
+      images: ["/images/lunatalk-pr.png"], // 詳細画像を増やす可能性
     },
     designProcessStages: [
       {
         title: "Title: Naming & Core Messaging",
-        purpose: "To define the naming and core messaging that resonates with the user.",
-        content: "Brainstorming project names, defining the friendly AI persona for LunaTalk, and crafting engaging headlines.",
+        purpose: "To define the naming and core messaging that resonates with the user, drawing inspiration from key cultural elements.",
+        content: "The concept for LunaTalk is deeply rooted in rich Japanese culture, including anime, city pop, and games. The project began with the charming character image leading to the selection of 'LunaTalk' as a memorable and friendly title.",
       },
       {
         title: "Icon: Distinctive Visual Identity",
-        purpose: "To create a distinctive and recognizable icon that embodies the product's essence.",
-        content: "Exploring visual representations of conversation and Japanese learning (e.g., speech bubbles, moon motifs), sketching concepts, and refining the icon's form and vibrant color palette.",
-        imageUrl: "/images/lunatalk-design-icon.png",
+        purpose: "To create a distinctive and recognizable icon that embodies the product's essence, reflecting its friendly AI and Japanese learning focus.",
+        content: "While a moon motif was chosen for the icon to align with Luna, a simple silhouette felt generic and lacked strong appeal, failing to convey Luna's unique charm. Therefore, we incorporated textures reminiscent of silver accessories Luna might wear, evolving the design into the distinct icon it is today.",
+        imageUrl: "/images/lunatalk-icon.png",
       },
       {
         title: "Color: Harmonious Palette",
-        purpose: "To establish a harmonious and impactful color palette that supports the user experience.",
-        content: "Researching colors that evoke learning and friendliness, developing primary and secondary color schemes, and ensuring accessibility for diverse users.",
+        purpose: "To establish a harmonious and impactful color palette that supports the user experience and evokes learning and friendliness.",
+        content: "To enhance user motivation and create a friendly atmosphere, we conducted research into color psychology. Using Luna's distinctive purple as the base, we built primary and secondary color palettes, ensuring accessibility. This brought consistency and visual appeal to the entire app.",
+        imageUrl: "/images/lunatalk-color.png",
       },
       {
         title: "UI/UX: Intuitive Interactions",
-        purpose: "To design intuitive and engaging user interfaces and seamless user flows.",
-        content: "Developing chat interface layouts, defining natural conversational interaction patterns, prototyping key user journeys (chatting, vocabulary saving, level adjustment), and iterating based on user feedback for a smooth and enjoyable learning experience.",
-        imageUrl: "/images/lunatalk-design-uiux.png",
+        purpose: "To design intuitive and engaging user interfaces and seamless user flows, incorporating gamification and clear visual communication.",
+        content: "To ensure users enjoy a visually and interactively pleasing experience, we integrated gamification elements into the UI/UX. Development proceeded based on initial concept sketches, but we encountered a challenge: too much text information created a chaotic impression. To address this, we significantly increased the use of icons to improve visual heuristics, resulting in a more intuitive and user-friendly chat interface.",
+        imageUrl: "/images/lunatalk-uiux.png",
       },
     ],
     result: {
-      outcomes: "Achieved high user satisfaction for natural conversation and vocabulary retention. Strong early indicators of improved speaking confidence among regular users.",
-      solvedChallenge: "Successfully addressed the lack of natural conversational practice in language apps, providing a personalized and non-judgmental AI partner.",
-      impact: "Empowered thousands of users to practice Japanese daily, making language learning more accessible, engaging, and effective."
+      outcomes: "Achieved significant improvements in user engagement and conversational fluency, validated by increased daily active users and positive user feedback. Vocabulary retention rates showed marked improvement due to in-context saving features.",
+      solvedChallenge: "Successfully addressed the critical need for natural conversational practice in Japanese, providing a non-judgmental and infinitely patient AI partner that adapts to individual learning paces and preferences.",
+      impact: "Empowered thousands of users to confidently practice spoken Japanese, transforming language learning into an enjoyable and highly effective daily habit, and fostering a strong sense of accomplishment among learners."
     },
     feedback: {
-      collected: "User feedback was gathered through in-app surveys, direct email, and analysis of conversational logs to identify common user queries and areas for AI improvement.",
-      insights: "Insights included the desire for more diverse conversation topics and the effectiveness of short, daily practice sessions.",
-      improvements: "Iterative improvements involved expanding the AI's knowledge base for broader topics and refining the vocabulary saving UI based on user workflow analysis."
+      collected: "User feedback was continuously gathered through in-app surveys, direct email communication, and analysis of anonymous conversational logs to identify common user queries, areas for AI improvement, and popular chat themes.",
+      insights: "Key insights included a strong demand for more diverse conversation topics (e.g., business Japanese, specific cultural scenarios) and the effectiveness of short, daily practice sessions in maintaining user motivation and consistency.",
+      improvements: "Iterative improvements involved expanding the AI's contextual understanding for broader topics and optimizing the vocabulary saving UI for quicker access and review."
     },
     learnings: {
-      insights: "Gained deep insights into optimizing LLM responses for natural language learning interactions and designing AI interfaces that build user trust.",
-      challengesOvercome: "Overcame challenges in maintaining conversational coherence across various topics and ensuring AI responses were pedagogically sound.",
-      nextSteps: "Integrate more advanced speech recognition and pronunciation feedback, and explore multimodal learning experiences."
+      insights: "Gained profound insights into optimizing LLM responses for authentic language learning interactions, and the critical role of intuitive UI/UX in building user trust and engagement with AI-powered tools.",
+      challengesOvercome: "Successfully navigated the complexities of integrating a robust LLM with real-time conversational features, ensuring low latency and maintaining natural dialogue flow across various proficiency levels.",
+      nextSteps: "Future iterations will explore integrating more advanced speech recognition for real-time pronunciation analysis, developing adaptive learning paths based on performance data, and expanding into other languages to replicate LunaTalk's success."
     },
     testimonial: {
-      text: "LunaTalk is incredible! It feels like I'm talking to a real person, and my Japanese speaking confidence has soared.",
-      client: "Japanese Language Learner"
+      text: "LunaTalk has completely transformed my Japanese learning. It feels like I'm talking to a real person, and the ability to save new words instantly is a game-changer. My confidence in speaking has soared!",
+      client: "Japanese Language Learner & LunaTalk User"
     }
   },
   {

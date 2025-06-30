@@ -182,7 +182,7 @@ export default function ProjectDetailClientContent({
                 icon={faPalette}
                 className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
               />
-              Develop: Ideate and Create
+              Design: Ideate and Create
             </h4>
             <p className="text-base text-gray-700 dark:text-gray-300 mb-4">
               We explore diverse creative solutions and build them out.
