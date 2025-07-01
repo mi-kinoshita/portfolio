@@ -276,7 +276,7 @@ export const allProjects: Project[] = [
     },
     testimonial: {
       text: "LunaTalk has completely transformed my Japanese learning. It feels like I'm talking to a real person, and the ability to save new words instantly is a game-changer. My confidence in speaking has soared!",
-      client: "Akira Tanaka, Japanese Language Learner & LunaTalk User"
+      client: "Japanese Language Learner & LunaTalk User"
     }
   },
   {
