@@ -66,7 +66,7 @@ export default function AboutPage() {
           </p>
 
           {/* Contactページへのリンク */}
-          <div className="text-center mt-12">
+          {/* <div className="text-center mt-12">
             <Link
               href="https://www.figma.com/proto/T0fmvGk7ujPmNZi9X7rR3M/Mia-Design-Studio?node-id=1-37&t=EkAVjjSeMcNZAgPP-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A37"
               className="text-natural-600 dark:text-natural-400 text-lg font-medium hover:underline inline-flex items-center group"
@@ -78,7 +78,7 @@ export default function AboutPage() {
                 className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"
               />
             </Link>
-          </div>
+          </div> */}
         </section>
       </main>
     </div>
