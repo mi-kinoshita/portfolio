@@ -64,21 +64,6 @@ export default function AboutPage() {
             real-world impact. Thank you for visiting! Feel free to explore my
             work or connect with me.
           </p>
-
-          {/* Contactページへのリンク */}
-          {/* <div className="text-center mt-12">
-            <Link
-              href="https://www.figma.com/proto/T0fmvGk7ujPmNZi9X7rR3M/Mia-Design-Studio?node-id=1-37&t=EkAVjjSeMcNZAgPP-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A37"
-              className="text-natural-600 dark:text-natural-400 text-lg font-medium hover:underline inline-flex items-center group"
-              target="_blank"
-            >
-              View CV
-              <FontAwesomeIcon
-                icon={faArrowRight}
-                className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"
-              />
-            </Link>
-          </div> */}
         </section>
       </main>
     </div>
