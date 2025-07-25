@@ -73,7 +73,7 @@ export const allProjects: Project[] = [
     imageUrl: "/images/prythm-cover.png",
     appStoreLink: "https://apps.apple.com/us/app/prythm-self-care-daily/id6747229609",
     googlePlayLink: "https://play.google.com/store/apps/details?id=com.miadesignstudio.prythme",
-    link: "/projects/prythm-app", // Prythmはリンクを維持
+    link: "/projects/prism-app", // Prythmはリンクを維持
     challenge: {
       problem: "Existing habit trackers often feel overwhelming, judgmental, or push users towards burnout, lacking emotional intelligence.",
       situation: "Users needed a calming, offline-first solution that prioritizes self-compassion over strict productivity metrics.",
