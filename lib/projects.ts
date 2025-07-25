@@ -64,11 +64,11 @@ export interface Project {
 // すべてのプロジェクトデータ
 export const allProjects: Project[] = [
   {
-    slug: "prythm-app",
+    slug: "prism-app",
     year: "01",
-    title: "Prythm",
-    overview: "Prythm is a digital wellness and habit tracking mobile application designed for individuals seeking a gentle, self-care-focused approach to building daily routines. It emphasizes peace, personal rhythm, and mental well-being.",
-    description: "Discover a gentle way to build daily self-care habits. Prythm helps you stay in tune with your emotions and routines—so you can feel your rhythm, every day. It is a self-care focused To-Do app designed for peace, pacing, and remembering you matter.",
+    title: "Prism",
+    overview: "Prism is a digital wellness and habit tracking mobile application designed for individuals seeking a gentle, self-care-focused approach to building daily routines. It emphasizes peace, personal rhythm, and mental well-being.",
+    description: "Discover a gentle way to build daily self-care habits. Prism helps you stay in tune with your emotions and routines—so you can feel your rhythm, every day. It is a self-care focused To-Do app designed for peace, pacing, and remembering you matter.",
     subDescription: "Features include: self-care based task lists, gentle habit tracking with calming calendar views, mood-friendly themes (light, dark, warm beige), fully offline functionality (no accounts, no ads, no pressure), and optional kind reminders. Ideal for those seeking a daily rhythm of kindness to themselves, especially those prone to overwork, overthinking, or burnout.",
     imageUrl: "/images/prythm-cover.png",
     appStoreLink: "https://apps.apple.com/us/app/prythm-self-care-daily/id6747229609",
@@ -123,14 +123,14 @@ export const allProjects: Project[] = [
       },
     ],
     solution: {
-      description: "Prythm offers a clean, intuitive interface with unique features like mood-friendly themes and a calming calendar view. Its offline-first approach ensures complete user privacy, making it a safe haven for self-care.",
+      description: "Prism offers a clean, intuitive interface with unique features like mood-friendly themes and a calming calendar view. Its offline-first approach ensures complete user privacy, making it a safe haven for self-care.",
       images: ["/images/prythm-pr.png"],
     },
     designProcessStages: [
       {
         title: "Title: Naming & Core Messaging",
         purpose: "To define the naming and core messaging that resonates with the user.",
-        content: "The naming of Prythm drew inspiration from two concepts: 'prism,' which breaks light into its constituent colors, and 'rhythm,' representing habit formation. This blend reflects the app's core purpose: to help users gently 'decompose' and understand their various emotional patterns and internal rhythms, fostering a more mindful approach to self-care and consistent habit building.",
+        content: "The naming of Prism drew inspiration from two concepts: 'prism,' which breaks light into its constituent colors, and 'rhythm,' representing habit formation. This blend reflects the app's core purpose: to help users gently 'decompose' and understand their various emotional patterns and internal rhythms, fostering a more mindful approach to self-care and consistent habit building.",
       },
       {
         title: "Icon: Distinctive Visual Identity",
@@ -167,7 +167,7 @@ export const allProjects: Project[] = [
       nextSteps: "Explore integrating more subtle, AI-driven personalized insights (without compromising privacy) to further enhance the self-care journey."
     },
     testimonial: {
-      text: "Prythm is a game-changer for my mental well-being. It's gentle, private, and truly helps me prioritize self-care without the usual pressure of habit trackers.",
+      text: "Prism is a game-changer for my mental well-being. It's gentle, private, and truly helps me prioritize self-care without the usual pressure of habit trackers.",
       client: "Satisfied User"
     }
   },
