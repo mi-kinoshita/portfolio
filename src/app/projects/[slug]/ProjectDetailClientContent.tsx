@@ -1,17 +1,16 @@
-// app/projects/[slug]/ProjectDetailClientContent.tsx
-"use client"; // このコンポーネントはクライアントコンポーネントとして動作する
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
-  faBullseye,
-  faMagnifyingGlass,
-  faPalette,
-  faRocket,
+  faCheckCircle,
+  faExclamationTriangle,
+  faLightbulb,
+  faQuoteLeft,
 } from "@fortawesome/free-solid-svg-icons";
-import { Project } from "../../../../lib/projects"; // プロジェクトの型をインポート
+import { Project } from "../../../../lib/projects";
 
 interface ProjectDetailClientContentProps {
   project: Project;
@@ -26,10 +25,7 @@ export default function ProjectDetailClientContent({
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight text-center">
           {project.title}
         </h1>
-        {/* プロジェクトのメイン画像を配置 - 余白調整を強化 */}
-        <div className="relative w-full h-64 md:h-96 lg:h-[500px] rounded-lg overflow-hidden mb-4 md:mb-12">
-          {" "}
-          {/* mb-6 -> mb-4に調整 */}
+        <div className="relative w-full h-64 md:h-96 lg:h-[500px] rounded-lg overflow-hidden mb-8 md:mb-12">
           <Image
             src={project.imageUrl}
             alt={`${project.title} main image`}
@@ -39,16 +35,16 @@ export default function ProjectDetailClientContent({
             unoptimized={true}
           />
         </div>
-        <p className="text-lg md:text-xl leading-relaxed mb-8 text-gray-700 dark:text-gray-300 text-center">
+        <p className="text-lg md:text-xl leading-relaxed mb-12 text-gray-700 dark:text-gray-300 text-center">
           {project.overview}
         </p>
 
         {/* Challenge */}
-        <div className="mb-12">
+        <div className="mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">
             The Challenge
           </h2>
-          <ul className="list-disc list-inside space-y-2 text-lg text-gray-700 dark:text-gray-300">
+          <ul className="list-disc list-inside space-y-3 text-lg text-gray-700 dark:text-gray-300">
             <li>
               <strong>Problem:</strong> {project.challenge.problem}
             </li>
@@ -62,11 +58,11 @@ export default function ProjectDetailClientContent({
         </div>
 
         {/* Goal */}
-        <div className="mb-12">
+        <div className="mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">
             The Goal
           </h2>
-          <ul className="list-disc list-inside space-y-2 text-lg text-gray-700 dark:text-gray-300">
+          <ul className="list-disc list-inside space-y-3 text-lg text-gray-700 dark:text-gray-300">
             <li>
               <strong>Objectives:</strong> {project.goal.objectives}
             </li>
@@ -79,209 +75,189 @@ export default function ProjectDetailClientContent({
           </ul>
         </div>
 
-        {/* Our Approach - Double Diamond Structure */}
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900 dark:text-gray-100">
-            Our Approach: The Double Diamond Journey
-          </h2>
-          <div className="relative w-full max-w-2xl h-auto mx-auto mb-12 rounded-lg overflow-hidden">
-            <Image
-              src="/images/design-process.png" // publicディレクトリの画像パス
-              alt="Mia Design Studio Design Process Flow"
-              width={1200} // 画像の元の幅に応じて調整
-              height={600} // 画像の元の高さに応じて調整
-              layout="responsive" // レスポンシブにする
-              objectFit="contain" // アスペクト比を維持して収める
-              className="rounded-lg"
-              unoptimized={true} // 画像最適化を無効化
-            />
-          </div>
-
-          <p className="text-lg leading-relaxed mb-8 text-gray-700 dark:text-gray-300">
-            Our approach is guided by the Double Diamond framework, ensuring a
-            thorough exploration of the problem and a focused delivery of
-            solutions.
-          </p>
-
-          {/* First Diamond: Problem Space */}
-          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
-            1st Diamond: Problem Discovery & Definition
-          </h3>
-
-          {/* Discover Phase (Divergent) */}
-          <div className="bg-neutral-100 dark:bg-neutral-900 p-6 rounded-lg border border-gray-200 dark:border-gray-700 mb-8">
-            <h4 className="text-xl md:text-2xl font-bold mb-3 text-gray-900 dark:text-gray-100 flex items-center">
-              <FontAwesomeIcon
-                icon={faMagnifyingGlass}
-                className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
-              />
-              Discover: Explore and Understand
-            </h4>
-            <p className="text-base text-gray-700 dark:text-gray-300 mb-4">
-              We begin by deeply understanding the challenge through broad
-              exploration.
-            </p>
-            <div className="space-y-4">
-              {project.approach
-                .filter(
-                  (step) =>
-                    step.title === "Ideation & Conception" ||
-                    step.title === "Research & Discovery"
-                )
-                .map((step, index) => (
-                  <div key={index}>
-                    <p className="text-base text-gray-700 dark:text-gray-300 mb-1">
-                      <strong>{step.title}:</strong> {step.purpose}
-                    </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      Activities: {step.activities} | Role: {step.role}
-                    </p>
-                  </div>
-                ))}
-            </div>
-          </div>
-
-          {/* Define Phase (Convergent) */}
-          <div className="bg-neutral-100 dark:bg-neutral-900 p-6 rounded-lg border border-gray-200 dark:border-gray-700 mb-12">
-            <h4 className="text-xl md:text-2xl font-bold mb-3 text-gray-900 dark:text-gray-100">
-              <FontAwesomeIcon
-                icon={faBullseye}
-                className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
-              />
-              Define: Focus and Strategize
-            </h4>
-            <p className="text-base text-gray-700 dark:text-gray-300 mb-4">
-              Insights from discovery are refined into clear objectives and a
-              strategic direction.
-            </p>
-            <div className="space-y-4">
-              {project.approach
-                .filter((step) => step.title === "Requirements Definition")
-                .map((step, index) => (
-                  <div key={index}>
-                    <p className="text-base text-gray-700 dark:text-gray-300 mb-1">
-                      <strong>{step.title}:</strong> {step.purpose}
-                    </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      Activities: {step.activities} | Role: {step.role}
-                    </p>
-                  </div>
-                ))}
-            </div>
-          </div>
-
-          {/* Second Diamond: Solution Space */}
-          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
-            2nd Diamond: Solution Design & Delivery
-          </h3>
-
-          {/* Develop Phase (Divergent) */}
-          <div className="bg-neutral-100 dark:bg-neutral-900 p-6 rounded-lg border border-gray-200 dark:border-gray-700 mb-8">
-            <h4 className="text-xl md:text-2xl font-bold mb-3 text-gray-900 dark:text-gray-100 flex items-center">
-              <FontAwesomeIcon
-                icon={faPalette}
-                className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
-              />
-              Design: Ideate and Create
-            </h4>
-            <p className="text-base text-gray-700 dark:text-gray-300 mb-4">
-              We explore diverse creative solutions and build them out.
-            </p>
-
-            {/* Dynamic Design Process Stages */}
-            <div className="space-y-6">
-              {project.designProcessStages &&
-                project.designProcessStages.map((stage, index) => (
-                  <div key={index}>
-                    <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                      {stage.title}
-                    </h5>
-                    {stage.imageUrl && ( // 画像をタイトル直下に配置
-                      <div className="relative w-full h-48 md:h-64 rounded-lg overflow-hidden mt-2 mb-2">
-                        {" "}
-                        {/* mb-3 -> mb-2に調整 */}
-                        <Image
-                          src={stage.imageUrl}
-                          alt={`${project.title} ${stage.title} process image`}
-                          layout="fill"
-                          objectFit="contain" // 画像全体を表示するためにcontainを使用
-                          className="rounded-lg"
-                          unoptimized={true}
-                        />
-                      </div>
-                    )}
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mb-1">
-                      Purpose: {stage.purpose}
-                    </p>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
-                      Content: {stage.content}
-                    </p>
-                  </div>
-                ))}
-            </div>
-          </div>
-
-          {/* Deliver Phase (Convergent) */}
-          <div className="bg-neutral-100 dark:bg-neutral-900 p-6 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h4 className="text-xl md:text-2xl font-bold mb-3 text-gray-900 dark:text-gray-100">
-              <FontAwesomeIcon
-                icon={faRocket}
-                className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
-              />
-              Deliver: Refine and Launch
-            </h4>
-            <p className="text-base text-gray-700 dark:text-gray-300 mb-4">
-              The chosen solutions are refined, launched, and continuously
-              supported.
-            </p>
-            <div className="space-y-4">
-              {project.approach
-                .filter(
-                  (step) =>
-                    step.title === "Testing & Refinement" ||
-                    step.title === "Launch & Post-Launch"
-                )
-                .map((step, index) => (
-                  <div key={index}>
-                    <p className="text-base text-gray-700 dark:text-gray-300 mb-1">
-                      <strong>{step.title}:</strong> {step.purpose}
-                    </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      Activities: {step.activities} | Role: {step.role}
-                    </p>
-                  </div>
-                ))}
-            </div>
-          </div>
-        </div>
-
-        {/* The Solution */}
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2 text-gray-900 dark:text-gray-100">
-            The Solution
-          </h2>
-          {/* 最初の画像のみを表示し、objectFitをcontainに変更 - 余白調整を強化 */}
-          {project.solution.images && project.solution.images.length > 0 && (
-            <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden mb-4 md:mb-8">
+        {/* Persona Section */}
+        {project.persona && (
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+              Persona: {project.persona.title}
+            </h2>
+            <div className="relative w-full max-w-2xl h-auto mx-auto mb-8 rounded-lg overflow-hidden">
               <Image
-                src={project.solution.images[0]}
-                alt={`${project.title} Solution main image`}
+                src={project.persona.imageUrl}
+                alt={`${project.persona.title} persona image`}
+                width={1000}
+                height={562}
+                layout="responsive"
+                objectFit="contain"
+                className="rounded-lg"
+                unoptimized={true}
+              />
+            </div>
+            <p className="text-lg leading-relaxed mb-8 text-gray-700 dark:text-gray-300 text-center whitespace-pre-line">
+              {project.persona.overview}
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+              {project.persona.attributes.map((attribute, index) => (
+                <div
+                  key={index}
+                  className="p-6 bg-neutral-100 dark:bg-neutral-900 rounded-lg border border-gray-200 dark:border-gray-700"
+                >
+                  <h3 className="text-xl md:text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100 flex items-center">
+                    {attribute.title === "Goals" && (
+                      <FontAwesomeIcon
+                        icon={faCheckCircle}
+                        className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
+                      />
+                    )}
+                    {attribute.title === "Pain Points" && (
+                      <FontAwesomeIcon
+                        icon={faExclamationTriangle}
+                        className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
+                      />
+                    )}
+                    {attribute.title === "Motivations" && (
+                      <FontAwesomeIcon
+                        icon={faLightbulb}
+                        className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
+                      />
+                    )}
+                    {attribute.title === "Quote" && (
+                      <FontAwesomeIcon
+                        icon={faQuoteLeft}
+                        className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
+                      />
+                    )}
+                    {attribute.title}
+                  </h3>
+                  <p className="text-base text-gray-700 dark:text-gray-300">
+                    {attribute.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* the design & development */}
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900 dark:text-gray-100">
+            Starting the design & development
+          </h2>
+          <ul className="list-disc list-inside space-y-3 text-lg text-gray-700 dark:text-gray-300">
+            <li>
+              <strong>Technology Stack:</strong>{" "}
+              {project.starting?.technologyStack}
+            </li>
+            <li>
+              <strong>Tools Used:</strong> {project.starting?.toolsUsed}
+            </li>
+          </ul>
+          <p className="text-lg leading-relaxed mb-6 mt-6 text-gray-700 dark:text-gray-300 whitespace-pre-line">
+            {project.starting?.description}
+          </p>
+          {project.starting?.sketch?.imageUrl && (
+            <div className="relative w-full h-48 md:h-64 rounded-lg overflow-hidden mt-2 mb-2">
+              <Image
+                src={project.starting.sketch.imageUrl}
+                alt={`${project.title} UI/UX process image`}
                 layout="fill"
-                objectFit="contain" // 画像全体を表示するためにcontainを使用
+                objectFit="contain"
                 className="rounded-lg"
                 unoptimized={true}
               />
             </div>
           )}
-          {/* 説明文を画像の上、H2の下に移動 */}
-          <p className="text-lg leading-relaxed mb-4 md:mb-6 text-gray-700 dark:text-gray-300">
-            {" "}
-            {/* mb-4 md:mb-6に調整 */}
+          <p className="text-lg leading-relaxed mb-8 text-gray-700 dark:text-gray-300 whitespace-pre-line">
+            {project.starting?.sketch?.description}
+          </p>
+          {project.starting?.journey?.imageUrl && (
+            <div className="relative w-full h-48 md:h-100 rounded-lg overflow-hidden mt-2 mb-2">
+              <Image
+                src={project.starting.journey.imageUrl}
+                alt={`${project.title} UI/UX process image`}
+                layout="fill"
+                objectFit="contain"
+                className="rounded-lg"
+                unoptimized={true}
+              />
+            </div>
+          )}
+          <p className="text-lg leading-relaxed mb-8 text-gray-700 dark:text-gray-300 whitespace-pre-line">
+            {project.starting?.journey?.description}
+          </p>
+          {project.starting?.profile?.imageUrl && (
+            <div className="relative w-full h-48 md:h-100 rounded-lg overflow-hidden mt-2 mb-2">
+              <Image
+                src={project.starting.profile.imageUrl}
+                alt={`${project.title} UI/UX process image`}
+                layout="fill"
+                objectFit="contain"
+                className="rounded-lg"
+                unoptimized={true}
+              />
+            </div>
+          )}
+          <p className="text-lg leading-relaxed mb-8 text-gray-700 dark:text-gray-300 whitespace-pre-line">
+            {project.starting?.profile?.description}
+          </p>
+          {project.starting?.uiux?.imageUrl && (
+            <div className="relative w-full h-48 md:h-64 rounded-lg overflow-hidden mt-2 mb-2">
+              <Image
+                src={project.starting.uiux.imageUrl}
+                alt={`${project.title} UI/UX process image`}
+                layout="fill"
+                objectFit="contain"
+                className="rounded-lg"
+                unoptimized={true}
+              />
+            </div>
+          )}
+          <p className="text-lg leading-relaxed mb-8 text-gray-700 dark:text-gray-300 whitespace-pre-line">
+            {project.starting?.uiux?.description}
+          </p>
+          {/* Icon */}
+          <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+            Icon
+          </h5>
+          {project.starting?.icon?.imageUrl && (
+            <div className="relative w-full h-48 md:h-64 rounded-lg overflow-hidden mt-2 mb-2">
+              <Image
+                src={project.starting.icon.imageUrl}
+                alt={`${project.title} Icon`}
+                layout="fill"
+                objectFit="contain"
+                className="rounded-lg"
+                unoptimized={true}
+              />
+            </div>
+          )}
+          <p className="text-lg leading-relaxed mb-8 text-gray-700 dark:text-gray-300 whitespace-pre-line">
+            {project.starting?.icon?.description}
+          </p>
+        </div>
+
+        {/* The Solution */}
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+            The Solution
+          </h2>
+          {project.solution.images && project.solution.images.length > 0 && (
+            <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden mb-2 md:mb-6">
+              <Image
+                src={project.solution.images[0]}
+                alt={`${project.title} Solution main image`}
+                layout="fill"
+                objectFit="contain"
+                className="rounded-lg"
+                unoptimized={true}
+              />
+            </div>
+          )}
+          <p className="text-lg leading-relaxed mb-4 text-gray-700 dark:text-gray-300 text-center">
             {project.solution.description}
           </p>
-          {/* App Store / Google Play links if applicable */}
           {project.appStoreLink || project.googlePlayLink ? (
-            <div className="flex flex-row flex-wrap gap-4 items-center justify-center md:justify-center mt-8">
+            <div className="flex flex-row flex-wrap gap-4 items-center justify-center mt-2">
               {project.appStoreLink && (
                 <Link
                   href={project.appStoreLink}
@@ -323,11 +299,11 @@ export default function ProjectDetailClientContent({
         </div>
 
         {/* The Result */}
-        <div className="mb-12">
+        <div className="mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">
             The Result
           </h2>
-          <ul className="list-disc list-inside space-y-2 text-lg text-gray-700 dark:text-gray-300">
+          <ul className="list-disc list-inside space-y-3 text-lg text-gray-700 dark:text-gray-300">
             <li>
               <strong>Outcomes:</strong> {project.result.outcomes}
             </li>
@@ -342,11 +318,11 @@ export default function ProjectDetailClientContent({
         </div>
 
         {/* Feedback & Iteration */}
-        <div className="mb-12">
+        <div className="mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">
             Feedback & Iteration
           </h2>
-          <ul className="list-disc list-inside space-y-2 text-lg text-gray-700 dark:text-gray-300">
+          <ul className="list-disc list-inside space-y-3 text-lg text-gray-700 dark:text-gray-300">
             <li>
               <strong>Feedback Collected:</strong> {project.feedback.collected}
             </li>
@@ -361,11 +337,11 @@ export default function ProjectDetailClientContent({
         </div>
 
         {/* Learnings */}
-        <div className="mb-12">
+        <div className="mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">
             Learnings
           </h2>
-          <ul className="list-disc list-inside space-y-2 text-lg text-gray-700 dark:text-gray-300">
+          <ul className="list-disc list-inside space-y-3 text-lg text-gray-700 dark:text-gray-300">
             <li>
               <strong>Key Insights:</strong> {project.learnings.insights}
             </li>

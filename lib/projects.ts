@@ -1,6 +1,7 @@
 // lib/projects.ts
 
 // プロジェクトデータの型定義
+
 export interface Project {
   slug: string;
   title: string;
@@ -23,23 +24,50 @@ export interface Project {
     metrics: string;
     impact: string;
   };
-  approach: Array<{
+   persona?: {
     title: string;
-    purpose: string;
-    activities: string;
-    role: string;
-  }>;
+    imageUrl: string;
+    overview: string;
+    attributes: Array<{
+      title: string;
+      description: string;
+    }>;
+  };
+  discover?: {
+    research: string;
+    insights: string;
+    problemDefinition: string;
+  };
+  starting?: {
+    technologyStack: string;
+    toolsUsed: string;
+    description?: string;
+    sketch?: {
+      imageUrl: string;
+      description: string;
+    };
+    uiux?: {
+      imageUrl: string;
+      description: string;
+    };
+    journey?: {
+      imageUrl: string;
+      description: string;
+    };
+    profile?: {
+      imageUrl: string;
+      description: string;
+    };
+    icon?: {
+      imageUrl: string;
+      description: string;
+    };
+  };
   solution: {
     description: string; // プロジェクト詳細ページのソリューション説明
     images?: string[];
     videos?: string[];
   };
-  designProcessStages?: Array<{
-    title: string;
-    purpose: string;
-    content: string;
-    imageUrl?: string;
-  }>;
   result: {
     outcomes: string;
     solvedChallenge: string;
@@ -68,8 +96,8 @@ export const allProjects: Project[] = [
     year: "01",
     title: "Prism",
     overview: "Prism is a digital wellness and habit tracking mobile application designed for individuals seeking a gentle, self-care-focused approach to building daily routines. It emphasizes peace, personal rhythm, and mental well-being.",
-    description: "Discover a gentle way to build daily self-care habits. Prism helps you stay in tune with your emotions and routines—so you can feel your rhythm, every day. It is a self-care focused To-Do app designed for peace, pacing, and remembering you matter.",
-    subDescription: "Features include: self-care based task lists, gentle habit tracking with calming calendar views, mood-friendly themes (light, dark, warm beige), fully offline functionality (no accounts, no ads, no pressure), and optional kind reminders. Ideal for those seeking a daily rhythm of kindness to themselves, especially those prone to overwork, overthinking, or burnout.",
+    description: "Prism helps users build gentle daily self-help habits.",
+    subDescription: "Key features: self-help task lists, calming habit tracking, mood-friendly themes, offline use, and optional kind reminders. Designed for anyone seeking a daily rhythm of self-kindness, especially those at risk of burnout.",
     imageUrl: "/images/prythm-cover.png",
     appStoreLink: "https://apps.apple.com/us/app/prythm-self-care-daily/id6747229609",
     googlePlayLink: "https://play.google.com/store/apps/details?id=com.miadesignstudio.prythme",
@@ -84,73 +112,35 @@ export const allProjects: Project[] = [
       metrics: "User retention for habit tracking (e.g., 7-day, 30-day), positive user reviews, perceived emotional support from the app.",
       impact: "Enable users to build sustainable self-care routines without pressure, improving daily well-being."
     },
-    approach: [
-      {
-        title: "Ideation & Conception",
-        purpose: "To define the core concept of a 'gentle' habit tracker.",
-        activities: "Brainstorming 'calm' and 'supportive' app features, competitive analysis of wellness apps, initial user persona creation.",
-        role: "Led concept generation, focusing on empathetic user experience."
-      },
-      {
-        title: "Research & Discovery",
-        purpose: "To understand emotional triggers in habit formation and privacy concerns.",
-        activities: "Interviews with individuals prone to burnout, analysis of psychological principles of habit, market research on offline apps.",
-        role: "Conducted in-depth qualitative research to inform core app philosophy."
-      },
-      {
-        title: "Requirements Definition",
-        purpose: "To specify offline functionality, notification logic, and core habit tracking features.",
-        activities: "Defined detailed user flows for task creation and habit completion, specified data privacy architecture, drafted feature list.",
-        role: "Architected the user experience to be secure and non-intrusive."
-      },
-      {
-        title: "Design & Implementation",
-        purpose: "To craft a soothing visual and interactive experience.",
-        activities: "Designed minimalist UI, developed custom calming animations, implemented mood-friendly themes (light, dark, warm beige) with React Native.",
-        role: "Oversaw full-stack implementation, ensuring design integrity and performance."
-      },
-      {
-        title: "Testing & Refinement",
-        purpose: "To ensure app stability, usability, and emotional resonance.",
-        activities: "Extensive beta testing with target users, performance testing, bug fixing, gathering qualitative feedback on 'feelings' during use.",
-        role: "Managed testing cycles and iterated designs based on emotional and functional feedback."
-      },
-      {
-        title: "Launch & Post-Launch",
-        purpose: "To release to App Store/Google Play and monitor initial user response.",
-        activities: "App Store optimization (ASO), soft launch, initial user review monitoring, community engagement.",
-        role: "Coordinated launch activities and established channels for ongoing user support."
-      },
-    ],
+        starting: {
+      technologyStack: "React Native(Expo), Supabase, RevenueCat, LLM API",
+      toolsUsed: "Figma, Visual Studio Code, GitHub",
+      // description: "",
+      // sketch: {
+      //   imageUrl: "/images/lunatalk-drawing.jpeg",
+      //   description: "But after the App Store rejected it for being too similar to a website, I refocused on enhancing the chat experience and adding personalized features."
+      // },
+      //       journey: {
+      //   imageUrl: "/images/lunatalk-journey.png",
+      //   description: "I designed chat scenarios to give learners a more natural way to engage with Japanese culture. Users can swipe to go back between screens, and buttons are concentrated at the bottom to make the app easier to navigate."
+      // },
+      // uiux: {
+      //   imageUrl: "/images/lunatalk-uiux.png",
+      //   description: "To make the app easier and more enjoyable to use, I simplified the screens by reducing text and introducing more intuitive icons."
+      // },
+      // profile: {
+      //   imageUrl: "/images/lunatalk-prof.png",
+      //   description: "On the settings screen, users can set their images and choose chat formats. I wrote over 130 prompts for Luna to enable natural, patient, and adaptive Japanese conversation practice."
+      // },
+      icon: {
+        imageUrl: "/images/prythm-icon.png",
+        description: "Originally inspired by ‘Lune,’ the app’s hexagonal prism icon now reflects mood colors, representing the user’s emotions."
+      }
+    },
     solution: {
       description: "Prism offers a clean, intuitive interface with unique features like mood-friendly themes and a calming calendar view. Its offline-first approach ensures complete user privacy, making it a safe haven for self-care.",
       images: ["/images/prythm-pr.png"],
     },
-    designProcessStages: [
-      {
-        title: "Title: Naming & Core Messaging",
-        purpose: "To define the naming and core messaging that resonates with the user.",
-        content: "The naming of Prism drew inspiration from two concepts: 'prism,' which breaks light into its constituent colors, and 'rhythm,' representing habit formation. This blend reflects the app's core purpose: to help users gently 'decompose' and understand their various emotional patterns and internal rhythms, fostering a more mindful approach to self-care and consistent habit building.",
-      },
-      {
-        title: "Icon: Distinctive Visual Identity",
-        purpose: "To create a distinctive and recognizable icon that embodies the product's essence.",
-        content: "Initially, the icon design focused on habit formation, leading to a moon motif and later a checkmark for tasks. However, recognizing the app's core emphasis on emotional well-being, we explored icons derived from the app's mood colors. This also faced challenges with Apple's 'Liquid Glass' design requirements, leading to the current, distinctive hexagonal prism design.",
-        imageUrl: "/images/prythm-icon.png",
-      },
-      {
-        title: "Color: Harmonious Palette",
-        purpose: "To establish a harmonious and impactful color palette that supports the user experience.",
-        content: "Researching color psychology for wellness, developing primary and secondary color schemes (light, dark, warm beige), and ensuring accessibility.",
-        imageUrl: "/images/prythm-color.png",
-      },
-      {
-        title: "UI/UX: Intuitive Interactions",
-        purpose: "To design intuitive and engaging user interfaces and seamless user flows.",
-        content: "Developing minimalist screen layouts, defining gentle interaction patterns, prototyping key user journeys (habit tracking, task management), and iterating based on early feedback for a calming experience.",
-        imageUrl: "/images/prythm-uiux.png",
-      },
-    ],
     result: {
       outcomes: "Achieved positive user reviews praising its calming effect and privacy features. Consistently high engagement rates for self-care routines compared to competitors.",
       solvedChallenge: "Successfully created a non-intrusive, supportive habit tracker that addresses the emotional fatigue associated with traditional productivity apps.",
@@ -175,104 +165,89 @@ export const allProjects: Project[] = [
     slug: "lunatalk-app",
     year: "02",
     title: "LunaTalk",
-    overview: "LunaTalk is your personal AI chat partner for practicing real-life Japanese. Dive into natural conversations, save new vocabulary to your custom list, and adapt your learning experience with adjustable levels and styles. Luna makes daily Japanese practice simple, fun, and motivating for learners of all levels.",
-    description: "Engage in natural Japanese conversations with Luna, your AI chat partner. Seamlessly save vocabulary, customize learning levels, and get daily practice reminders. Ideal for anyone aiming to improve spoken Japanese for travel, exams, or daily use.",
-    subDescription: "Key features include: AI-powered conversational practice, instant vocabulary saving, customizable learning levels (beginner to advanced), diverse chat themes, daily practice reminders, and fun motivational messages from Luna. Stay motivated and build fluency through interactive, judgment-free practice.",
+    overview: "LunaTalk is your personal AI chat partner for practicing real-life Japanese.",
+    description: "Engage in natural Japanese conversations with Luna, your AI chat partner.",
+    subDescription: "Key features include: AI-powered conversational practice, instant vocabulary saving, customizable learning levels.",
     imageUrl: "/images/lunatalk-cover.png",
     appStoreLink: "https://apps.apple.com/us/app/lunatalk/id6744715809",
     googlePlayLink: "https://play.google.com/store/apps/details?id=com.miadesign.lunaTalk",
-    link: "/projects/lunatalk-app", // ★更新: 詳細ページへのリンクを有効化
+    link: "/projects/lunatalk-app",
     challenge: {
-      problem: "Traditional language learning methods often lack opportunities for natural, judgment-free conversational practice, leading to stagnation in spoken fluency and motivation.",
-      situation: "Learners struggle to find affordable and flexible ways to engage in authentic Japanese dialogues, frequently feeling intimidated or bored by rigid curricula.",
-      necessary: "To create an accessible, adaptive AI-powered platform that simulates real conversations, encourages consistent practice, and provides personalized feedback to overcome learning plateaus."
+      problem: "There are very few opportunities to practice natural and enjoyable Japanese conversations.",
+      situation: "Learners struggle to find affordable and flexible ways to engage in real Japanese dialogues.",
+      necessary: "An AI-powered platform that makes Japanese conversation fun, accessible, and personalized."
     },
     goal: {
-      objectives: "Develop an intuitive and engaging AI chat application that simulates natural Japanese conversations. Provide personalized learning paths and vocabulary management. Increase user confidence and fluency in spoken Japanese.",
-      metrics: "Average daily session duration, number of vocabulary words saved per user, user retention rates (especially for repeat conversations), self-reported confidence improvements.",
-      impact: "Enable users to practice Japanese speaking consistently and effectively, bridging the gap between theoretical knowledge and practical application, fostering a lifelong love for the language."
+      objectives: "Build an AI chat app that helps learners practice natural Japanese conversations. Provide personalized learning paths and vocabulary management to boost confidence and fluency.",
+      metrics: "Track progress through MRR, MAU, and learners’ self-reported confidence.",
+      impact: "Enable users to practice Japanese conversations consistently, nurturing a lasting love for Japanese."
     },
-    approach: [
-      {
-        title: "Ideation & Conception",
-        purpose: "To define the core concept of an AI conversation partner for language learning.",
-        activities: "Brainstorming AI interaction scenarios, initial feature conceptualization (e.g., vocabulary saving, level adjustment), competitor analysis of language apps.",
-        role: "Led concept generation, focusing on natural and effective conversational experiences."
-      },
-      {
-        title: "Research & Discovery",
-        purpose: "To understand language learner pain points and AI conversational best practices.",
-        activities: "Conducted interviews with Japanese learners of various levels, researched pedagogical approaches for language acquisition, analyzed existing conversational AI limitations.",
-        role: "Conducted in-depth qualitative research to inform core app philosophy."
-      },
-      {
-        title: "Requirements Definition",
-        purpose: "To specify AI response logic, vocabulary management, and personalization features.",
-        activities: "Defined conversational flows, outlined vocabulary saving mechanisms, specified learning level adaptation algorithms, drafted UI/UX for chat interface.",
-        role: "Translated research into detailed functional and technical requirements for AI and app features."
-      },
-      {
-        title: "Design & Implementation",
-        purpose: "To build an intuitive and engaging conversational interface.",
-        activities: "Designed chat UI, developed custom animations for AI responses, integrated LLM APIs, implemented vocabulary saving and level adjustment features with React Native.",
-        role: "Oversaw front-end and back-end integration, ensuring seamless user interaction with AI."
-      },
-      {
-        title: "Testing & Refinement",
-        purpose: "To ensure conversational naturalness, accuracy, and user engagement.",
-        activities: "Extensive beta testing with diverse language learners, AI response quality assessment, usability testing for feature adoption, bug fixing.",
-        role: "Managed testing cycles and iterated AI models and UI based on user feedback and performance metrics."
-      },
-      {
-        title: "Launch & Post-Launch",
-        purpose: "To release the app and continue refining based on live user data.",
-        activities: "App Store Optimization (ASO), community engagement, continuous monitoring of conversational logs and user feedback for AI model fine-tuning.",
-        role: "Coordinated launch and established a continuous improvement loop for AI and app features."
-      },
-    ],
-    solution: {
-      description: "LunaTalk provides a dynamic and private environment for Japanese conversation practice, accessible anytime, anywhere. Its adaptive AI, intuitive vocabulary saving, and customizable learning themes (e.g., 'city pop', 'anime') make it a powerful and personalized tool for learners of all levels. The minimalist design ensures a distraction-free experience, allowing users to fully immerse themselves in the conversation and focus on language acquisition.",
-      images: ["/images/lunatalk-pr.png"], // 詳細画像を増やす可能性
+    persona: {
+      title: "Liz, The Japanese Enthusiast",
+      imageUrl: "/images/lunatalk-persona2.png",
+      overview: "Liz is a university student passionate about Japanese culture, from anime and manga to city-pop. \nShe has been studying Japanese for a couple of months but struggles with conversational fluency.",
+      attributes: [
+        {
+          title: "Goals",
+          description: "Find a fun and low-pressure way to practice without the fear of making mistakes."
+        },
+        {
+          title: "Pain Points",
+          description: "Feels embarrassed when he makes mistakes in conversation. Finds traditional textbooks boring and lacks opportunities for real-life practice."
+        },
+        {
+          title: "Motivations",
+          description: "Wants to engage with Japanese media and eventually visit Japan and communicate freely. Is motivated by fun, interactive learning experiences."
+        },
+        {
+          title: "Quote",
+          description: "“I wish I could talk to someone in Japanese every day, but I don't want to bother anyone or feel judged.”"
+        }
+      ]
     },
-    designProcessStages: [
-      {
-        title: "Title: Naming & Core Messaging",
-        purpose: "To define the naming and core messaging that resonates with the user, drawing inspiration from key cultural elements.",
-        content: "The concept for LunaTalk is deeply rooted in rich Japanese culture, including anime, city pop, and games. The project began with the charming character image leading to the selection of 'LunaTalk' as a memorable and friendly title. In this phase, a distinctive purple was established as the key color, setting the overall visual direction for the app.",
+    starting: {
+      technologyStack: "React Native(Expo), Supabase, RevenueCat, LLM API",
+      toolsUsed: "Figma, Visual Studio Code, GitHub",
+      description: "At first, I planned a simple chat app with Luna’s image as the main feature. To move faster, I started with sketches on paper.",
+      sketch: {
+        imageUrl: "/images/lunatalk-drawing.jpeg",
+        description: "But after the App Store rejected it for being too similar to a website, I refocused on enhancing the chat experience and adding personalized features."
       },
-      {
-        title: "Icon: Distinctive Visual Identity",
-        purpose: "To create a distinctive and recognizable icon that embodies the product's essence, reflecting its friendly AI and Japanese learning focus.",
-        content: "While a moon motif was chosen for the icon to align with Luna, a simple silhouette felt generic and lacked strong appeal, failing to convey Luna's unique charm. Therefore, we incorporated textures reminiscent of silver accessories Luna might wear, evolving the design into the distinct icon it is today.",
-        imageUrl: "/images/lunatalk-icon.png",
+            journey: {
+        imageUrl: "/images/lunatalk-journey.png",
+        description: "I designed chat scenarios to give learners a more natural way to engage with Japanese culture. Users can swipe to go back between screens, and buttons are concentrated at the bottom to make the app easier to navigate."
       },
-      {
-        title: "Color: Harmonious Palette",
-        purpose: "To establish a harmonious and impactful color palette that supports the user experience and evokes learning and friendliness.",
-        content: "To enhance user motivation and create a friendly atmosphere, we conducted research into color psychology. Using Luna's distinctive purple as the base, we built primary and secondary color palettes, ensuring accessibility. This brought consistency and visual appeal to the entire app.",
-        imageUrl: "/images/lunatalk-color.png",
-      },
-      {
-        title: "UI/UX: Intuitive Interactions",
-        purpose: "To design intuitive and engaging user interfaces and seamless user flows, incorporating gamification and clear visual communication.",
-        content: "To ensure users enjoy a visually and interactively pleasing experience, we integrated gamification elements into the UI/UX. Development proceeded based on initial concept sketches, but we encountered a challenge: too much text information created a chaotic impression. To address this, we significantly increased the use of icons to improve visual heuristics, resulting in a more intuitive and user-friendly chat interface.",
+      uiux: {
         imageUrl: "/images/lunatalk-uiux.png",
+        description: "To make the app easier and more enjoyable to use, I simplified the screens by reducing text and introducing more intuitive icons."
       },
-    ],
+      profile: {
+        imageUrl: "/images/lunatalk-prof.png",
+        description: "On the settings screen, users can set their images and choose chat formats. I wrote over 130 prompts for Luna to enable natural, patient, and adaptive Japanese conversation practice."
+      },
+      icon: {
+        imageUrl: "/images/lunatalk-icon.png",
+        description: "I first used a moon icon for Luna, but it felt plain. Adding silver-like textures made it into the unique icon."
+      }
+    },
+    solution: {
+      description: "LunaTalk offers a private and engaging space for practicing Japanese.",
+      images: ["/images/lunatalk-scs.png"], // 詳細画像を増やす可能性
+    },
     result: {
-      outcomes: "Achieved significant improvements in user engagement and conversational fluency, validated by increased daily active users and positive user feedback. Vocabulary retention rates showed marked improvement due to in-context saving features.",
-      solvedChallenge: "Successfully addressed the critical need for natural conversational practice in Japanese, providing a non-judgmental and infinitely patient AI partner that adapts to individual learning paces and preferences.",
-      impact: "Empowered thousands of users to confidently practice spoken Japanese, transforming language learning into an enjoyable and highly effective daily habit, and fostering a strong sense of accomplishment among learners."
+      outcomes: "Daily active users continue to rise, showing strong engagement. ASO improvements increased CVR by up to 50%, and MRR keeps growing. Careful coding has maintained a 0% crash rate.",
+      solvedChallenge: "Delivered natural, judgment-free Japanese conversation practice. Created a personalized, adaptive AI that matches each learner’s pace and preferences.",
+      impact: "Users can confidently practice Japanese, making learning fun, consistent, and rewarding."
     },
     feedback: {
-      collected: "User feedback was continuously gathered through in-app surveys, direct email communication, and analysis of anonymous conversational logs to identify common user queries, areas for AI improvement, and popular chat themes.",
-      insights: "Key insights included a strong demand for more diverse conversation topics (e.g., business Japanese, specific cultural scenarios) and the effectiveness of short, daily practice sessions in maintaining user motivation and consistency.",
-      improvements: "Iterative improvements involved expanding the AI's contextual understanding for broader topics and optimizing the vocabulary saving UI for quicker access and review."
+      collected: "User feedback was gathered via email, in-app anonymous reporting, and online meetings. Users frequently used the chat feature and wanted to copy unknown words by long-pressing messages. Initially, long-press triggered the report function, creating a friction point.",
+      insights: "Key insights included the need for easier vocabulary saving and more diverse conversation topics. Short daily practice sessions were most effective in keeping learners motivated.",
+      improvements: "I moved the report function to an icon and enabled long-press for copying, which improved MAU by 40%. I also enhanced the AI's contextual understanding and refined the vocabulary saving UI for quicker access and review."
     },
     learnings: {
-      insights: "Gained profound insights into optimizing LLM responses for authentic language learning interactions, and the critical role of intuitive UI/UX in building user trust and engagement with AI-powered tools.",
-      challengesOvercome: "Successfully navigated the complexities of integrating a robust LLM with real-time conversational features, ensuring low latency and maintaining natural dialogue flow across various proficiency levels.",
-      nextSteps: "Future iterations will explore integrating more advanced speech recognition for real-time pronunciation analysis, developing adaptive learning paths based on performance data, and expanding into other languages to replicate LunaTalk's success."
+      insights: "Learned how to optimize LLM responses for real language learning and the importance of intuitive UI/UX to build user trust.",
+      challengesOvercome: "Integrated a robust LLM with real-time chat, keeping low latency and natural dialogue across skill levels.",
+      nextSteps: "I plan to add voice features for real-time pronunciation feedback to boost user satisfaction, refine adaptive learning paths, and expand LunaTalk to other languages."
     },
     testimonial: {
       text: "LunaTalk has completely transformed my Japanese learning. It feels like I'm talking to a real person, and the ability to save new words instantly is a game-changer. My confidence in speaking has soared!",
@@ -298,72 +273,10 @@ export const allProjects: Project[] = [
       metrics: "Average session duration, daily active users (DAU), completion rate of Pomodoro sessions, positive feedback on visual appeal and ease of use.",
       impact: "Improve study efficiency and reduce digital distractions for teenage users."
     },
-    approach: [
-      {
-        title: "Ideation & Conception",
-        purpose: "To brainstorm themes and features that appeal to teenagers and enhance focus.",
-        activities: "Conceptualized aquatic themes, sketched character designs for marine creatures, defined core Pomodoro timer functionality.",
-        role: "Led the creative conceptualization and defined the unique selling proposition for the target demographic."
-      },
-      {
-        title: "Research & Discovery",
-        purpose: "To understand teenagers' digital habits, preferred visual styles, and common study distractions.",
-        activities: "Conducted surveys and informal interviews with high school students, analyzed popular educational apps, researched attention span dynamics in teens.",
-        role: "Gathered insights into the psychological aspects of teen engagement and focus."
-      },
-      {
-        title: "Requirements Definition",
-        purpose: "To specify timer settings, animation triggers, and notification behaviors.",
-        activities: "Mapped out user flows for setting and completing Pomodoro sessions, defined animation states for marine creatures, outlined data privacy requirements.",
-        role: "Translated research insights into actionable design and technical specifications."
-      },
-      {
-        title: "Design & Implementation",
-        purpose: "To create an immersive and distraction-free aquatic study environment.",
-        activities: "Designed a minimalist UI with calming color palettes, developed custom marine creature animations, integrated responsive timer visuals with React Native.",
-        role: "Oversaw the visual and interactive design, ensuring technical feasibility during development."
-      },
-      {
-        title: "Testing & Refinement",
-        purpose: "To validate usability, engagement, and identify any distracting elements.",
-        activities: "Conducted user testing with teenagers to assess visual appeal and timer effectiveness, collected feedback on perceived focus levels, iterated on animation pacing.",
-        role: "Facilitated user testing and led iterative design adjustments based on direct user feedback."
-      },
-      {
-        title: "Launch & Post-Launch",
-        purpose: "To release the app and monitor its reception among the target audience.",
-        activities: "Pre-launch marketing to educational communities, app store listing optimization, initial user engagement analysis.",
-        role: "Supported launch strategy and planned for future content updates based on early adoption data."
-      },
-    ],
     solution: {
       description: "AquaFlow provides a serene and captivating environment where a user's focus is visualized as a calming underwater journey. The charming marine animations and intuitive timer make studying an enjoyable and effective experience.",
       images: ["/images/pomo-detail-1.jpeg", "/images/pomo-detail-2.jpeg"],
     },
-    designProcessStages: [
-      {
-        title: "Title: Naming & Core Messaging",
-        purpose: "To define the naming and core messaging that appeals to teenagers.",
-        content: "Brainstorming fun, aquatic-themed names and developing clear, motivating messages for AquaFlow.",
-      },
-      {
-        title: "Icon: Distinctive Visual Identity",
-        purpose: "To create a distinctive and recognizable icon that captures the app's aquatic theme and appeals to teens.",
-        content: "Designing an icon featuring marine elements (e.g., fish, waves) in a minimalist, friendly style. Iterating on shapes and colors to ensure visual appeal.",
-        imageUrl: "/images/prythm-icon.png",
-      },
-      {
-        title: "Color: Harmonious Palette",
-        purpose: "To establish a harmonious and calming color palette conducive to focused study.",
-        content: "Selecting serene blues, greens, and soft pastels to create a peaceful underwater atmosphere, while ensuring good contrast and accessibility.",
-      },
-      {
-        title: "UI/UX: Intuitive Interactions",
-        purpose: "To design intuitive and engaging user interfaces for study timers and break management.",
-        content: "Developing clean screen layouts for the Pomodoro timer, integrating charming marine creature animations, and prototyping seamless user flows for starting/pausing sessions and tracking progress.",
-        imageUrl: "/images/pomo-design-uiux.png",
-      },
-    ],
     result: {
       outcomes: "Initial feedback indicates high engagement among teenagers due to the unique theme and minimalist design. Early metrics show increased session completion rates compared to generic timers.",
       solvedChallenge: "Successfully addressed the challenge of engaging teenagers in focused study by transforming a mundane task into a delightful and visually rewarding experience.",
