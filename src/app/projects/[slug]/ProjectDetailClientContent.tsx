@@ -141,22 +141,51 @@ export default function ProjectDetailClientContent({
         {/* the design & development */}
         <div className="mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900 dark:text-gray-100">
-            Starting the design & development
+            Design & Development
           </h2>
+          {project.starting?.description && (
+            <p className="text-lg leading-relaxed mb-6 mt-6 text-gray-700 dark:text-gray-300">
+              {project.starting.description}
+            </p>
+          )}
+          <h3 className="text-xl md:text-2xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100 flex items-center">
+            Tech Stack & Tools
+          </h3>
           <ul className="list-disc list-inside space-y-3 text-lg text-gray-700 dark:text-gray-300">
             <li>
-              <strong>Technology Stack:</strong>{" "}
-              {project.starting?.technologyStack}
+              <strong>Tech Stack:</strong> {project.starting?.technologyStack}
             </li>
             <li>
-              <strong>Tools Used:</strong> {project.starting?.toolsUsed}
+              <strong>Tools:</strong> {project.starting?.toolsUsed}
             </li>
           </ul>
-          <p className="text-lg leading-relaxed mb-6 mt-6 text-gray-700 dark:text-gray-300 whitespace-pre-line">
-            {project.starting?.description}
-          </p>
+          {project.starting?.keyRequirements &&
+            project.starting.keyRequirements.length > 0 && (
+              <>
+                <h3 className="text-xl md:text-2xl font-bold mt-12 mb-4 text-gray-900 dark:text-gray-100 flex items-center">
+                  Key Requirements
+                </h3>
+                <ul className="list-disc list-inside space-y-3 text-lg text-gray-700 dark:text-gray-300">
+                  {project.starting.keyRequirements.map((req, index) => (
+                    <li key={index}>
+                      {req.split(":").length > 1 ? (
+                        <>
+                          <strong>{req.split(":")[0]}:</strong>
+                          {req.split(":").slice(1).join(":")}
+                        </>
+                      ) : (
+                        req
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          <h3 className="text-xl md:text-3xl font-bold mt-16 mb-2 text-gray-900 dark:text-gray-100 flex items-center">
+            Release Journey
+          </h3>
           {project.starting?.sketch?.imageUrl && (
-            <div className="relative w-full h-48 md:h-64 rounded-lg overflow-hidden mt-2 mb-2">
+            <div className="relative w-full h-48 md:h-64 rounded-lg overflow-hidden mt-16 mb-16">
               <Image
                 src={project.starting.sketch.imageUrl}
                 alt={`${project.title} UI/UX process image`}
@@ -167,11 +196,11 @@ export default function ProjectDetailClientContent({
               />
             </div>
           )}
-          <p className="text-lg leading-relaxed mb-8 text-gray-700 dark:text-gray-300 whitespace-pre-line">
+          <p className="text-lg leading-relaxed mt-16 mb-16 text-gray-700 dark:text-gray-300 whitespace-pre-line">
             {project.starting?.sketch?.description}
           </p>
           {project.starting?.journey?.imageUrl && (
-            <div className="relative w-full h-48 md:h-100 rounded-lg overflow-hidden mt-2 mb-2">
+            <div className="relative w-full h-48 md:h-100 rounded-lg overflow-hidden mt-20 mb-16">
               <Image
                 src={project.starting.journey.imageUrl}
                 alt={`${project.title} UI/UX process image`}
@@ -182,11 +211,11 @@ export default function ProjectDetailClientContent({
               />
             </div>
           )}
-          <p className="text-lg leading-relaxed mb-8 text-gray-700 dark:text-gray-300 whitespace-pre-line">
+          <p className="text-lg leading-relaxed mb-16 text-gray-700 dark:text-gray-300 whitespace-pre-line">
             {project.starting?.journey?.description}
           </p>
           {project.starting?.profile?.imageUrl && (
-            <div className="relative w-full h-48 md:h-100 rounded-lg overflow-hidden mt-2 mb-2">
+            <div className="relative w-full h-48 md:h-100 rounded-lg overflow-hidden mt-20 mb-20">
               <Image
                 src={project.starting.profile.imageUrl}
                 alt={`${project.title} UI/UX process image`}
@@ -197,11 +226,11 @@ export default function ProjectDetailClientContent({
               />
             </div>
           )}
-          <p className="text-lg leading-relaxed mb-8 text-gray-700 dark:text-gray-300 whitespace-pre-line">
+          <p className="text-lg leading-relaxed mb-16 text-gray-700 dark:text-gray-300 whitespace-pre-line">
             {project.starting?.profile?.description}
           </p>
           {project.starting?.uiux?.imageUrl && (
-            <div className="relative w-full h-48 md:h-64 rounded-lg overflow-hidden mt-2 mb-2">
+            <div className="relative w-full h-48 md:h-64 rounded-lg overflow-hidden mt-20 mb-16">
               <Image
                 src={project.starting.uiux.imageUrl}
                 alt={`${project.title} UI/UX process image`}
@@ -216,11 +245,11 @@ export default function ProjectDetailClientContent({
             {project.starting?.uiux?.description}
           </p>
           {/* Icon */}
-          <h5 className="text-lg md:text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+          <h5 className="text-lg md:text-xl font-semibold mt-8 mb-8 text-gray-800 dark:text-gray-100">
             Icon
           </h5>
           {project.starting?.icon?.imageUrl && (
-            <div className="relative w-full h-48 md:h-64 rounded-lg overflow-hidden mt-2 mb-2">
+            <div className="relative w-full h-48 md:h-64 rounded-lg overflow-hidden mt-8 mb-8">
               <Image
                 src={project.starting.icon.imageUrl}
                 alt={`${project.title} Icon`}
@@ -231,9 +260,38 @@ export default function ProjectDetailClientContent({
               />
             </div>
           )}
-          <p className="text-lg leading-relaxed mb-8 text-gray-700 dark:text-gray-300 whitespace-pre-line">
+          <p className="text-lg leading-relaxed mb-8 text-gray-600 dark:text-gray-300 whitespace-pre-line">
             {project.starting?.icon?.description}
           </p>
+
+          {/* After Launch Section */}
+          <div className="mb-16">
+            <h3 className="text-xl md:text-3xl font-bold mt-16 mb-8 text-gray-900 dark:text-gray-100">
+              After Launch
+            </h3>
+            <p className="text-lg leading-relaxed mb-8 text-gray-600 dark:text-gray-300 whitespace-pre-line">
+              {project.starting?.afterLaunchDescription}
+            </p>
+            {project.starting?.afterLaunch &&
+              project.starting.afterLaunch.length > 0 &&
+              project.starting.afterLaunch.map((imageItem, index) => (
+                <div key={index} className="mb-8">
+                  <div className="relative w-full h-80 md:h-96 rounded-lg overflow-hidden">
+                    <Image
+                      src={imageItem.imageUrl}
+                      alt={imageItem.description}
+                      layout="fill"
+                      objectFit="contain"
+                      className="rounded-lg"
+                      unoptimized={true}
+                    />
+                  </div>
+                  <p className="text-lg leading-relaxed mt-4 text-gray-700 dark:text-gray-300">
+                    {imageItem.description}
+                  </p>
+                </div>
+              ))}
+          </div>
         </div>
 
         {/* The Solution */}
@@ -242,7 +300,7 @@ export default function ProjectDetailClientContent({
             The Solution
           </h2>
           {project.solution.images && project.solution.images.length > 0 && (
-            <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden mb-2 md:mb-6">
+            <div className="relative w-full h-132 md:h-196 rounded-lg overflow-hidden mb-2 md:mb-6">
               <Image
                 src={project.solution.images[0]}
                 alt={`${project.title} Solution main image`}

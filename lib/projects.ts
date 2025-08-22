@@ -42,6 +42,7 @@ export interface Project {
     technologyStack: string;
     toolsUsed: string;
     description?: string;
+        keyRequirements?: string[]; 
     sketch?: {
       imageUrl: string;
       description: string;
@@ -62,6 +63,11 @@ export interface Project {
       imageUrl: string;
       description: string;
     };
+    afterLaunchDescription?: string; 
+    afterLaunch?: Array<{
+      imageUrl: string;
+      description: string;
+    }>;
   };
   solution: {
     description: string; // プロジェクト詳細ページのソリューション説明
@@ -208,10 +214,15 @@ export const allProjects: Project[] = [
     starting: {
       technologyStack: "React Native(Expo), Supabase, RevenueCat, LLM API",
       toolsUsed: "Figma, Visual Studio Code, GitHub",
-      description: "At first, I planned a simple chat app with Luna’s image as the main feature. To move faster, I started with sketches on paper.",
+           keyRequirements: [ // ★追加
+        "Chat: Smooth, adaptive, and judgment-free conversation",
+        "Vocabulary: Quick saving and review of words",
+        "Onboarding: Clear guidance for first-time users",
+      ],
+      description: "To address learners’ needs for natural Japanese conversation, quick vocabulary management, and easy onboarding, I defined core requirements and chose a tech stack that supports them.",
       sketch: {
         imageUrl: "/images/lunatalk-drawing.jpeg",
-        description: "But after the App Store rejected it for being too similar to a website, I refocused on enhancing the chat experience and adding personalized features."
+        description: "At first, I planned a simple chat app with Luna’s image as the main feature. To move faster, I started with sketches on paper. But after the App Store rejected it for being too similar to a website, I refocused on enhancing the chat experience and adding personalized features."
       },
             journey: {
         imageUrl: "/images/lunatalk-journey.png",
@@ -228,11 +239,26 @@ export const allProjects: Project[] = [
       icon: {
         imageUrl: "/images/lunatalk-icon.png",
         description: "I first used a moon icon for Luna, but it felt plain. Adding silver-like textures made it into the unique icon."
-      }
+      },
+      afterLaunchDescription: "Based on user feedback after launch, I implemented several UX improvements in the Chat and Settings screens.",
+      afterLaunch: [
+        {
+          imageUrl: "/images/lunatalk-ab-chat.png",
+          description: "On the chat screen, I displayed the number of chats remaining and showed the AI’s “thinking” status with a loading icon. And I moved the report function to an icon and enabled long-press for copying, which improved MAU by 40%."
+        },
+        {
+          imageUrl: "/images/lunatalk-ab-revenue.png",
+          description: "When the chat limit is reached, an alert guides users to the Revenue screen, resulting in over a 50% increase in purchases and trial conversions."
+        },
+                {
+          imageUrl: "/images/lunatalk-ab-settings.png",
+          description: "On the settings screen, I clarified the chat format language titles and changed the selection from radio buttons to a dropdown menu. I also made the reminder on/off status immediately visible by switching it to a toggle button."
+        }
+      ]
     },
     solution: {
       description: "LunaTalk offers a private and engaging space for practicing Japanese.",
-      images: ["/images/lunatalk-scs.png"], // 詳細画像を増やす可能性
+      images: ["/images/lunatalk-solution.png"], // 詳細画像を増やす可能性
     },
     result: {
       outcomes: "Daily active users continue to rise, showing strong engagement. ASO improvements increased CVR by up to 50%, and MRR keeps growing. Careful coding has maintained a 0% crash rate.",
