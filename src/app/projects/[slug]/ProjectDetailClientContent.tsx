@@ -197,6 +197,21 @@ export default function ProjectDetailClientContent({
                 </div>
               ))}
             </div>
+            <h3 className="text-xl md:text-2xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100 flex items-center">
+              User Journey
+            </h3>
+            <div className="relative w-full max-w-2xl h-auto mx-auto mb-8 rounded-lg overflow-hidden">
+              <Image
+                src={project.persona.userJourney.imgUrl}
+                alt={`${project.persona.title} persona image`}
+                width={1000}
+                height={562}
+                layout="responsive"
+                objectFit="contain"
+                className="rounded-lg"
+                unoptimized={true}
+              />
+            </div>
           </div>
         )}
 

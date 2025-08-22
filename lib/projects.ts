@@ -37,6 +37,9 @@ export interface Project {
       title: string;
       description: string;
     }>;
+    userJourney: {
+      imgUrl: string;
+    };
   };
   discover?: {
     research: string;
@@ -204,7 +207,10 @@ export const allProjects: Project[] = [
           title: "Quote",
           description: "“I wish I could talk to someone in Japanese every day, but I don't want to bother anyone or feel judged.”"
         }
-      ]
+      ],
+      userJourney: {
+        imgUrl: "/images/lunatalk-user-journey.png"
+      },
     },
     process: {
       technologyStack: "React Native(Expo), Supabase, RevenueCat, LLM API",
