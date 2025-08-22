@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     siteName: "Mia Design Studio", // サイト名
     images: [
       {
-        url: "https://mia-design-studio.work/images/ogp-image.png", // OGP画像のURLに置き換えてください
+        url: "https://mia-design-studio.work/images/lunatalk-cover.png", // OGP画像のURLに置き換えてください
         width: 1200, // 画像の幅 (px)
         height: 630, // 画像の高さ (px)
         alt: "Mia Design Studio Image", // 画像の代替テキスト
