@@ -5,9 +5,11 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
-  faCheckCircle,
+  faBullseye,
   faExclamationTriangle,
+  faKey,
   faLightbulb,
+  faMagnifyingGlass,
   faQuoteLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { Project } from "../../../../lib/projects";
@@ -75,6 +77,66 @@ export default function ProjectDetailClientContent({
           </ul>
         </div>
 
+        {/* User Research Section */}
+        {project.userResearch && (
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+              User Research
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+              {/* Research Goal */}
+              <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h4 className="text-2xl font-bold mb-4 flex items-center text-gray-900 dark:text-gray-100">
+                  <FontAwesomeIcon
+                    icon={faBullseye}
+                    className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
+                  />
+                  Goal
+                </h4>
+                <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                  {project.userResearch.goal}
+                </p>
+              </div>
+
+              {/* Research Methods */}
+              <div className="bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h4 className="text-2xl font-bold mb-4 flex items-center text-gray-900 dark:text-gray-100">
+                  <FontAwesomeIcon
+                    icon={faMagnifyingGlass}
+                    className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
+                  />
+                  Methods
+                </h4>
+                <ul className="list-disc list-inside space-y-2 text-lg text-gray-700 dark:text-gray-300">
+                  {project.userResearch.methods.map((method, index) => (
+                    <li key={index}>
+                      <span>{method}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Key Insights */}
+            <div className="mt-8 bg-neutral-100 dark:bg-neutral-900 p-8 rounded-lg border border-gray-200 dark:border-gray-700">
+              <h4 className="text-2xl font-bold mb-4 flex items-center text-gray-900 dark:text-gray-100">
+                <FontAwesomeIcon
+                  icon={faKey}
+                  className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
+                />
+                Key Insights
+              </h4>
+              <ul className="list-disc list-inside space-y-2 text-lg text-gray-700 dark:text-gray-300">
+                {project.userResearch.insights.map((insight, index) => (
+                  <li key={index}>
+                    <span>{insight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+
         {/* Persona Section */}
         {project.persona && (
           <div className="mb-16">
@@ -103,9 +165,9 @@ export default function ProjectDetailClientContent({
                   className="p-6 bg-neutral-100 dark:bg-neutral-900 rounded-lg border border-gray-200 dark:border-gray-700"
                 >
                   <h3 className="text-xl md:text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100 flex items-center">
-                    {attribute.title === "Goals" && (
+                    {attribute.title === "Goal" && (
                       <FontAwesomeIcon
-                        icon={faCheckCircle}
+                        icon={faBullseye}
                         className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
                       />
                     )}
@@ -182,7 +244,7 @@ export default function ProjectDetailClientContent({
               </>
             )}
           <h3 className="text-xl md:text-3xl font-bold mt-16 mb-2 text-gray-900 dark:text-gray-100 flex items-center">
-            Release Journey
+            To Release
           </h3>
           {project.process?.releaseJourney &&
             project.process.releaseJourney.length > 0 &&
@@ -252,29 +314,54 @@ export default function ProjectDetailClientContent({
               ))}
           </div>
         </div>
-
-        {/* The Solution */}
-        <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">
-            The Solution
-          </h2>
-          {project.solution.images && project.solution.images.length > 0 && (
-            <div className="relative w-full h-132 md:h-196 rounded-lg overflow-hidden mb-2 md:mb-6">
+        {/* User Flow Section */}
+        {project.userFlow && (
+          <div className="mb-16">
+            <h3 className="text-xl md:text-3xl font-bold mt-16 mb-8 text-gray-900 dark:text-gray-100">
+              User Flow
+            </h3>
+            <div className="relative w-full h-80 md:h-96 rounded-lg overflow-hidden my-8">
               <Image
-                src={project.solution.images[0]}
-                alt={`${project.title} Solution main image`}
+                src={project.userFlow.images}
+                alt={`${project.title} User Flow`}
                 layout="fill"
                 objectFit="contain"
                 className="rounded-lg"
                 unoptimized={true}
               />
             </div>
-          )}
-          <p className="text-lg leading-relaxed mb-8 text-gray-700 dark:text-gray-300 text-center">
-            {project.solution.description}
-          </p>
+            <p className="text-lg leading-relaxed mt-4 text-gray-700 dark:text-gray-300">
+              {project.userFlow.description}
+            </p>
+          </div>
+        )}
+
+        {/* The Solution */}
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+            The Solution
+          </h2>
+          <div className="flex flex-col space-y-8 mt-8">
+            {project.solution.images.map((imageItem, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <div className="relative w-full h-80 md:h-96 rounded-lg overflow-hidden">
+                  <Image
+                    src={imageItem.imageUrl}
+                    alt={imageItem.description}
+                    layout="fill"
+                    objectFit="contain"
+                    className="rounded-lg"
+                    unoptimized={true}
+                  />
+                </div>
+                <p className="text-lg leading-relaxed mt-4 text-gray-700 dark:text-gray-300">
+                  {imageItem.description}
+                </p>
+              </div>
+            ))}
+          </div>
           {project.appStoreLink || project.googlePlayLink ? (
-            <div className="flex flex-row flex-wrap gap-4 items-center justify-center mt-8">
+            <div className="flex flex-row flex-wrap gap-4 items-center justify-center mt-12">
               {project.appStoreLink && (
                 <Link
                   href={project.appStoreLink}

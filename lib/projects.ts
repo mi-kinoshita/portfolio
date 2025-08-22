@@ -24,7 +24,12 @@ export interface Project {
     metrics: string;
     impact: string;
   };
-   persona?: {
+  userResearch?: {
+    goal: string;
+    methods: string[];
+    insights: string[];
+  };
+  persona?: {
     title: string;
     imageUrl: string;
     overview: string;
@@ -57,10 +62,15 @@ export interface Project {
       description: string;
     }>;
   };
-  solution: {
+    userFlow?: {
     description: string; // プロジェクト詳細ページのソリューション説明
-    images?: string[];
-    videos?: string[];
+    images: string;
+  };
+  solution: {
+    images: Array<{
+      imageUrl: string;
+      description: string;
+    }>;
   };
   result: {
     outcomes: string;
@@ -115,8 +125,12 @@ export const allProjects: Project[] = [
       },
     },
     solution: {
-      description: "Prism offers a clean, intuitive interface with unique features like mood-friendly themes and a calming calendar view. Its offline-first approach ensures complete user privacy, making it a safe haven for self-care.",
-      images: ["/images/prythm-pr.png"],
+      images: [
+        {
+          imageUrl: "/images/prythm-solution.png",
+          description: "The main solution image for Prism."
+        }
+      ],
     },
     result: {
       outcomes: "Achieved positive user reviews praising its calming effect and privacy features. Consistently high engagement rates for self-care routines compared to competitors.",
@@ -159,13 +173,23 @@ export const allProjects: Project[] = [
       metrics: "Track progress through MRR, MAU, and learners’ self-reported confidence.",
       impact: "Enable users to practice Japanese conversations consistently, nurturing a lasting love for Japanese."
     },
+      userResearch: {
+    goal: "Identify learners’ pain points in practicing natural Japanese",
+    methods: ["User interviews", "Online survey"],
+    insights: [
+      "Learners felt anxious about making mistakes",
+      "Vocabulary management was often fragmented",
+      "Finds traditional textbooks boring"
+    ]
+  },
+
     persona: {
       title: "Liz, The Japanese Enthusiast",
       imageUrl: "/images/lunatalk-persona2.png",
       overview: "Liz is a university student passionate about Japanese culture, from anime and manga to city-pop. \nShe has been studying Japanese for a couple of months but struggles with conversational fluency.",
       attributes: [
         {
-          title: "Goals",
+          title: "Goal",
           description: "Find a fun and low-pressure way to practice without the fear of making mistakes."
         },
         {
@@ -202,7 +226,7 @@ export const allProjects: Project[] = [
       },
       {
         imageUrl: "/images/lunatalk-uiux.png",
-        description: "To make the app easier and more enjoyable to use, I simplified the screens by reducing text and introducing more intuitive icons."
+        description: "I enhanced engagement with Duolingo-inspired gamification, using icons for clarity, a dynamic progress graph, and daily random chat topics and encouragement from Luna."
       },
       {
         imageUrl: "/images/lunatalk-prof.png",
@@ -229,9 +253,17 @@ export const allProjects: Project[] = [
         }
       ]
     },
+    userFlow: {
+      description: "Using RevenueCat data showing most purchases happen shortly after first launch, I designed LunaTalk’s user journey so trial or purchase can occur within five minutes.",
+      images: "/images/lunatalk-userflow.png",
+    },
     solution: {
-      description: "LunaTalk offers a private and engaging space for practicing Japanese.",
-      images: ["/images/lunatalk-solution.png"], // 詳細画像を増やす可能性
+      images: [
+                {
+          imageUrl: "/images/lunatalk-scs.png",
+          description: "LunaTalk was developed with seven core screens. App Store/Google Play screenshots were optimized using ASO and SEO principles, achieving over 1,000 impressions per month without any paid advertising. Try it for free!"
+        }
+      ]
     },
     result: {
       outcomes: "Daily active users continue to rise, showing strong engagement. ASO improvements increased CVR by up to 50%, and MRR keeps growing. Careful coding has maintained a 0% crash rate.",
@@ -273,8 +305,8 @@ export const allProjects: Project[] = [
       impact: "Improve study efficiency and reduce digital distractions for teenage users."
     },
     solution: {
-      description: "AquaFlow provides a serene and captivating environment where a user's focus is visualized as a calming underwater journey. The charming marine animations and intuitive timer make studying an enjoyable and effective experience.",
-      images: ["/images/pomo-detail-1.jpeg", "/images/pomo-detail-2.jpeg"],
+      images: [
+      ]
     },
     result: {
       outcomes: "Initial feedback indicates high engagement among teenagers due to the unique theme and minimalist design. Early metrics show increased session completion rates compared to generic timers.",
