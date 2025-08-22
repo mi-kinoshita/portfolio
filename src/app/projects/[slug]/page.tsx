@@ -56,7 +56,8 @@ export async function generateStaticParams() {
 }
 
 // プロジェクト詳細ページコンポーネント
-export default function ProjectDetailPage({
+// paramsの型を正しい形式に修正
+export default async function ProjectDetailPage({
   params,
 }: {
   params: { slug: string };
