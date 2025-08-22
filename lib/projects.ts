@@ -130,7 +130,7 @@ export const allProjects: Project[] = [
     solution: {
       images: [
         {
-          imageUrl: "/images/prythm-solution.png",
+          imageUrl: "/images/prythm-pr.png",
           description: "The main solution image for Prism."
         }
       ],
