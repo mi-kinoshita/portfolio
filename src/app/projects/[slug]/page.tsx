@@ -1,41 +1,71 @@
 // app/projects/[slug]/page.tsx
-// 'use client' はこのファイルから削除し、サーバーコンポーネントとする
+import { notFound } from "next/navigation";
+import { allProjects } from "../../../../lib/projects";
+import ProjectDetailClientContent from "./ProjectDetailClientContent";
+import { Metadata } from "next";
 
-import { notFound } from "next/navigation"; // notFoundをインポート
-import { allProjects } from "../../../../lib/projects"; // プロジェクトデータをインポート
-import ProjectDetailClientContent from "./ProjectDetailClientContent"; // クライアントコンポーネントをインポート
+// 動的なOGPメタデータを生成
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const project = allProjects.find((p) => p.slug === params.slug);
 
-// プロジェクトの詳細データを取得するための関数 (同期関数として維持)
+  if (!project) {
+    return {};
+  }
+
+  // OGP画像のフルURLを生成
+  const ogImageUrl = `https://mia-design-studio.work${project.imageUrl}`;
+
+  return {
+    title: project.title,
+    description: project.description,
+    openGraph: {
+      title: project.title,
+      description: project.description,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.description,
+      images: [ogImageUrl],
+    },
+  };
+}
+
+// プロジェクトの詳細データを取得するための関数
 function getProjectDetails(slug: string) {
   return allProjects.find((project) => project.slug === slug);
 }
 
 // generateStaticParams 関数 (サーバーサイドで実行され、静的パスを生成)
-// `output: 'export'` が設定されている場合、動的ルートで必須
 export async function generateStaticParams() {
-  // allProjects 配列からすべてのプロジェクトのスラッグを取得し、パスとして返す
   return allProjects.map((project) => ({
     slug: project.slug,
   }));
 }
 
 // プロジェクト詳細ページコンポーネント
-// Next.js 15では params は Promise になったため、型定義を修正
 export default async function ProjectDetailPage({
   params,
 }: {
-  params: Promise<{ slug: string }>; // Promise型に変更
+  params: { slug: string };
 }) {
-  // Next.js 15では params を await する必要がある
-  const { slug } = await params;
-  const project = getProjectDetails(slug); // 同期関数なので await は不要
+  const project = getProjectDetails(params.slug);
 
-  // プロジェクトが見つからない場合は404ページを表示
   if (!project) {
     notFound();
   }
 
-  // クライアントコンポーネントにprojectデータを渡してレンダリング
-  // サーバーコンポーネントからクライアントコンポーネントへデータを渡す
   return <ProjectDetailClientContent project={project} />;
 }
