@@ -8,9 +8,10 @@ import { Metadata } from "next";
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>; // Promise型に変更
 }): Promise<Metadata> {
-  const project = allProjects.find((p) => p.slug === params.slug);
+  const resolvedParams = await params; // paramsを解決
+  const project = allProjects.find((p) => p.slug === resolvedParams.slug);
 
   if (!project) {
     return {};
@@ -56,13 +57,14 @@ export async function generateStaticParams() {
 }
 
 // プロジェクト詳細ページコンポーネント
-// paramsの型を正しい形式に修正
+// paramsの型をPromise型に修正
 export default async function ProjectDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>; // Promise型に変更
 }) {
-  const project = getProjectDetails(params.slug);
+  const resolvedParams = await params; // paramsを解決
+  const project = getProjectDetails(resolvedParams.slug);
 
   if (!project) {
     notFound();
