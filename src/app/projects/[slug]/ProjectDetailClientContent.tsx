@@ -341,10 +341,10 @@ export default function ProjectDetailClientContent({
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">
             The Solution
           </h2>
-          <div className="flex flex-col space-y-8 mt-8">
+          <div className="flex flex-col space-y-3 mt-2">
             {project.solution.images.map((imageItem, index) => (
               <div key={index} className="flex flex-col items-center">
-                <div className="relative w-full h-80 md:h-96 rounded-lg overflow-hidden">
+                <div className="relative w-full h-52 md:h-96 rounded-lg overflow-hidden">
                   <Image
                     src={imageItem.imageUrl}
                     alt={imageItem.description}
@@ -354,7 +354,7 @@ export default function ProjectDetailClientContent({
                     unoptimized={true}
                   />
                 </div>
-                <p className="text-lg leading-relaxed mt-4 text-gray-700 dark:text-gray-300">
+                <p className="text-lg leading-relaxed mt-8 text-gray-700 dark:text-gray-300">
                   {imageItem.description}
                 </p>
               </div>
