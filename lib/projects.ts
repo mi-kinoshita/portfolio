@@ -38,32 +38,20 @@ export interface Project {
     insights: string;
     problemDefinition: string;
   };
-  starting?: {
+  process?: {
     technologyStack: string;
     toolsUsed: string;
     description?: string;
-        keyRequirements?: string[]; 
-    sketch?: {
+    keyRequirements?: string[];
+    releaseJourney?: Array<{
+      imageUrl: string;
+      description: string;
+    }>;
+    icon: {
       imageUrl: string;
       description: string;
     };
-    uiux?: {
-      imageUrl: string;
-      description: string;
-    };
-    journey?: {
-      imageUrl: string;
-      description: string;
-    };
-    profile?: {
-      imageUrl: string;
-      description: string;
-    };
-    icon?: {
-      imageUrl: string;
-      description: string;
-    };
-    afterLaunchDescription?: string; 
+    afterLaunchDescription?: string;
     afterLaunch?: Array<{
       imageUrl: string;
       description: string;
@@ -118,30 +106,13 @@ export const allProjects: Project[] = [
       metrics: "User retention for habit tracking (e.g., 7-day, 30-day), positive user reviews, perceived emotional support from the app.",
       impact: "Enable users to build sustainable self-care routines without pressure, improving daily well-being."
     },
-        starting: {
+    process: {
       technologyStack: "React Native(Expo), Supabase, RevenueCat, LLM API",
       toolsUsed: "Figma, Visual Studio Code, GitHub",
-      // description: "",
-      // sketch: {
-      //   imageUrl: "/images/lunatalk-drawing.jpeg",
-      //   description: "But after the App Store rejected it for being too similar to a website, I refocused on enhancing the chat experience and adding personalized features."
-      // },
-      //       journey: {
-      //   imageUrl: "/images/lunatalk-journey.png",
-      //   description: "I designed chat scenarios to give learners a more natural way to engage with Japanese culture. Users can swipe to go back between screens, and buttons are concentrated at the bottom to make the app easier to navigate."
-      // },
-      // uiux: {
-      //   imageUrl: "/images/lunatalk-uiux.png",
-      //   description: "To make the app easier and more enjoyable to use, I simplified the screens by reducing text and introducing more intuitive icons."
-      // },
-      // profile: {
-      //   imageUrl: "/images/lunatalk-prof.png",
-      //   description: "On the settings screen, users can set their images and choose chat formats. I wrote over 130 prompts for Luna to enable natural, patient, and adaptive Japanese conversation practice."
-      // },
       icon: {
         imageUrl: "/images/prythm-icon.png",
-        description: "Originally inspired by ‘Lune,’ the app’s hexagonal prism icon now reflects mood colors, representing the user’s emotions."
-      }
+        description: "The app icon features a calming gradient that reflects the app's focus on self-care and mental well-being."
+      },
     },
     solution: {
       description: "Prism offers a clean, intuitive interface with unique features like mood-friendly themes and a calming calendar view. Its offline-first approach ensures complete user privacy, making it a safe haven for self-care.",
@@ -211,7 +182,7 @@ export const allProjects: Project[] = [
         }
       ]
     },
-    starting: {
+    process: {
       technologyStack: "React Native(Expo), Supabase, RevenueCat, LLM API",
       toolsUsed: "Figma, Visual Studio Code, GitHub",
            keyRequirements: [ // ★追加
@@ -220,23 +191,25 @@ export const allProjects: Project[] = [
         "Onboarding: Clear guidance for first-time users",
       ],
       description: "To address learners’ needs for natural Japanese conversation, quick vocabulary management, and easy onboarding, I defined core requirements and chose a tech stack that supports them.",
-      sketch: {
+     releaseJourney: [
+      {
         imageUrl: "/images/lunatalk-drawing.jpeg",
         description: "At first, I planned a simple chat app with Luna’s image as the main feature. To move faster, I started with sketches on paper. But after the App Store rejected it for being too similar to a website, I refocused on enhancing the chat experience and adding personalized features."
       },
-            journey: {
+        {
         imageUrl: "/images/lunatalk-journey.png",
         description: "I designed chat scenarios to give learners a more natural way to engage with Japanese culture. Users can swipe to go back between screens, and buttons are concentrated at the bottom to make the app easier to navigate."
       },
-      uiux: {
+      {
         imageUrl: "/images/lunatalk-uiux.png",
         description: "To make the app easier and more enjoyable to use, I simplified the screens by reducing text and introducing more intuitive icons."
       },
-      profile: {
+      {
         imageUrl: "/images/lunatalk-prof.png",
         description: "On the settings screen, users can set their images and choose chat formats. I wrote over 130 prompts for Luna to enable natural, patient, and adaptive Japanese conversation practice."
       },
-      icon: {
+     ],
+          icon:  {
         imageUrl: "/images/lunatalk-icon.png",
         description: "I first used a moon icon for Luna, but it felt plain. Adding silver-like textures made it into the unique icon."
       },

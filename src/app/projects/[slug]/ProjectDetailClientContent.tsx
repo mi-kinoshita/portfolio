@@ -143,9 +143,9 @@ export default function ProjectDetailClientContent({
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900 dark:text-gray-100">
             Design & Development
           </h2>
-          {project.starting?.description && (
+          {project.process?.description && (
             <p className="text-lg leading-relaxed mb-6 mt-6 text-gray-700 dark:text-gray-300">
-              {project.starting.description}
+              {project.process.description}
             </p>
           )}
           <h3 className="text-xl md:text-2xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100 flex items-center">
@@ -153,20 +153,20 @@ export default function ProjectDetailClientContent({
           </h3>
           <ul className="list-disc list-inside space-y-3 text-lg text-gray-700 dark:text-gray-300">
             <li>
-              <strong>Tech Stack:</strong> {project.starting?.technologyStack}
+              <strong>Tech Stack:</strong> {project.process?.technologyStack}
             </li>
             <li>
-              <strong>Tools:</strong> {project.starting?.toolsUsed}
+              <strong>Tools:</strong> {project.process?.toolsUsed}
             </li>
           </ul>
-          {project.starting?.keyRequirements &&
-            project.starting.keyRequirements.length > 0 && (
+          {project.process?.keyRequirements &&
+            project.process.keyRequirements.length > 0 && (
               <>
                 <h3 className="text-xl md:text-2xl font-bold mt-12 mb-4 text-gray-900 dark:text-gray-100 flex items-center">
                   Key Requirements
                 </h3>
                 <ul className="list-disc list-inside space-y-3 text-lg text-gray-700 dark:text-gray-300">
-                  {project.starting.keyRequirements.map((req, index) => (
+                  {project.process.keyRequirements.map((req, index) => (
                     <li key={index}>
                       {req.split(":").length > 1 ? (
                         <>
@@ -184,74 +184,33 @@ export default function ProjectDetailClientContent({
           <h3 className="text-xl md:text-3xl font-bold mt-16 mb-2 text-gray-900 dark:text-gray-100 flex items-center">
             Release Journey
           </h3>
-          {project.starting?.sketch?.imageUrl && (
-            <div className="relative w-full h-48 md:h-64 rounded-lg overflow-hidden mt-16 mb-16">
-              <Image
-                src={project.starting.sketch.imageUrl}
-                alt={`${project.title} UI/UX process image`}
-                layout="fill"
-                objectFit="contain"
-                className="rounded-lg"
-                unoptimized={true}
-              />
-            </div>
-          )}
-          <p className="text-lg leading-relaxed mt-16 mb-16 text-gray-700 dark:text-gray-300 whitespace-pre-line">
-            {project.starting?.sketch?.description}
-          </p>
-          {project.starting?.journey?.imageUrl && (
-            <div className="relative w-full h-48 md:h-100 rounded-lg overflow-hidden mt-20 mb-16">
-              <Image
-                src={project.starting.journey.imageUrl}
-                alt={`${project.title} UI/UX process image`}
-                layout="fill"
-                objectFit="contain"
-                className="rounded-lg"
-                unoptimized={true}
-              />
-            </div>
-          )}
-          <p className="text-lg leading-relaxed mb-16 text-gray-700 dark:text-gray-300 whitespace-pre-line">
-            {project.starting?.journey?.description}
-          </p>
-          {project.starting?.profile?.imageUrl && (
-            <div className="relative w-full h-48 md:h-100 rounded-lg overflow-hidden mt-20 mb-20">
-              <Image
-                src={project.starting.profile.imageUrl}
-                alt={`${project.title} UI/UX process image`}
-                layout="fill"
-                objectFit="contain"
-                className="rounded-lg"
-                unoptimized={true}
-              />
-            </div>
-          )}
-          <p className="text-lg leading-relaxed mb-16 text-gray-700 dark:text-gray-300 whitespace-pre-line">
-            {project.starting?.profile?.description}
-          </p>
-          {project.starting?.uiux?.imageUrl && (
-            <div className="relative w-full h-48 md:h-64 rounded-lg overflow-hidden mt-20 mb-16">
-              <Image
-                src={project.starting.uiux.imageUrl}
-                alt={`${project.title} UI/UX process image`}
-                layout="fill"
-                objectFit="contain"
-                className="rounded-lg"
-                unoptimized={true}
-              />
-            </div>
-          )}
-          <p className="text-lg leading-relaxed mb-8 text-gray-700 dark:text-gray-300 whitespace-pre-line">
-            {project.starting?.uiux?.description}
-          </p>
+          {project.process?.releaseJourney &&
+            project.process.releaseJourney.length > 0 &&
+            project.process.releaseJourney.map((imageItem, index) => (
+              <div key={index} className="mb-8">
+                <div className="relative w-full h-80 md:h-96 rounded-lg overflow-hidden">
+                  <Image
+                    src={imageItem.imageUrl}
+                    alt={imageItem.description}
+                    layout="fill"
+                    objectFit="contain"
+                    className="rounded-lg"
+                    unoptimized={true}
+                  />
+                </div>
+                <p className="text-lg leading-relaxed mt-4 text-gray-700 dark:text-gray-300">
+                  {imageItem.description}
+                </p>
+              </div>
+            ))}
           {/* Icon */}
           <h5 className="text-lg md:text-xl font-semibold mt-8 mb-8 text-gray-800 dark:text-gray-100">
             Icon
           </h5>
-          {project.starting?.icon?.imageUrl && (
+          {project.process?.icon?.imageUrl && (
             <div className="relative w-full h-48 md:h-64 rounded-lg overflow-hidden mt-8 mb-8">
               <Image
-                src={project.starting.icon.imageUrl}
+                src={project.process.icon.imageUrl}
                 alt={`${project.title} Icon`}
                 layout="fill"
                 objectFit="contain"
@@ -261,7 +220,7 @@ export default function ProjectDetailClientContent({
             </div>
           )}
           <p className="text-lg leading-relaxed mb-8 text-gray-600 dark:text-gray-300 whitespace-pre-line">
-            {project.starting?.icon?.description}
+            {project.process?.icon?.description}
           </p>
 
           {/* After Launch Section */}
@@ -270,11 +229,11 @@ export default function ProjectDetailClientContent({
               After Launch
             </h3>
             <p className="text-lg leading-relaxed mb-8 text-gray-600 dark:text-gray-300 whitespace-pre-line">
-              {project.starting?.afterLaunchDescription}
+              {project.process?.afterLaunchDescription}
             </p>
-            {project.starting?.afterLaunch &&
-              project.starting.afterLaunch.length > 0 &&
-              project.starting.afterLaunch.map((imageItem, index) => (
+            {project.process?.afterLaunch &&
+              project.process.afterLaunch.length > 0 &&
+              project.process.afterLaunch.map((imageItem, index) => (
                 <div key={index} className="mb-8">
                   <div className="relative w-full h-80 md:h-96 rounded-lg overflow-hidden">
                     <Image
@@ -311,11 +270,11 @@ export default function ProjectDetailClientContent({
               />
             </div>
           )}
-          <p className="text-lg leading-relaxed mb-4 text-gray-700 dark:text-gray-300 text-center">
+          <p className="text-lg leading-relaxed mb-8 text-gray-700 dark:text-gray-300 text-center">
             {project.solution.description}
           </p>
           {project.appStoreLink || project.googlePlayLink ? (
-            <div className="flex flex-row flex-wrap gap-4 items-center justify-center mt-2">
+            <div className="flex flex-row flex-wrap gap-4 items-center justify-center mt-8">
               {project.appStoreLink && (
                 <Link
                   href={project.appStoreLink}
