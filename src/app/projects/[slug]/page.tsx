@@ -48,7 +48,7 @@ function getProjectDetails(slug: string) {
   return allProjects.find((project) => project.slug === slug);
 }
 
-// generateStaticParams 関数 (サーバーサイドで実行され、静的パスを生成)
+// generateStaticParams 関数
 export async function generateStaticParams() {
   return allProjects.map((project) => ({
     slug: project.slug,
@@ -56,7 +56,7 @@ export async function generateStaticParams() {
 }
 
 // プロジェクト詳細ページコンポーネント
-export default async function ProjectDetailPage({
+export default function ProjectDetailPage({
   params,
 }: {
   params: { slug: string };
