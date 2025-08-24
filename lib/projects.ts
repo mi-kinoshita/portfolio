@@ -371,8 +371,8 @@ learnings: {
       nextSteps: "I plan to add voice features for real-time pronunciation feedback to boost user satisfaction, refine adaptive learning paths, and expand LunaTalk to other languages."
     },
     testimonial: {
-      text: "LunaTalk has completely transformed my Japanese learning. It feels like I'm talking to a real person, and the ability to save new words instantly is a game-changer. My confidence in speaking has soared!",
-      client: "Japanese Language Learner & LunaTalk User"
+      text: "LunaTalk has completely transformed my Japanese learning. It feels like I'm talking to a real person, and the ability to save new words instantly is a game changer. My confidence in speaking has soared!",
+      client: "Dominic"
     }
   },
   {
