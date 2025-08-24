@@ -136,7 +136,7 @@ export const allProjects: Project[] = [
         { title: "Goal", description: "Take care of herself while caring for her kids." },
         { title: "Pain Point", description: "Always puts family first, feels tired, often sick, guilty about self-care." },
         { title: "Motivation", description: "Stay healthy and happy to be present for her children." },
-        { title: "Quote", description: "I love my kids, but I’m always exhausted. I wish I had time for me." }
+        { title: "Quote", description: "I love my kids, but I'm always exhausted. I wish I had time for me." }
       ],
     },
      {
@@ -147,7 +147,7 @@ export const allProjects: Project[] = [
         { title: "Goal", description: "Find balance between work, fitness, and rest." },
         { title: "Pain Point", description: "Works too much, pushes himself hard, burned out, struggles to relax." },
         { title: "Motivation", description: "Wants a healthier lifestyle and mental balance." },
-        { title: "Quote", description: "I push myself to succeed, but I’m burning out. I need a break." }
+        { title: "Quote", description: "I push myself to succeed, but I'm burning out. I need a break." }
       ],
     },
   ],
@@ -184,7 +184,7 @@ export const allProjects: Project[] = [
         },
                         {
           imageUrl: "/images/prism-story.png",
-          description: "For the journaling feature, I used React Native’s KeyboardAvoidingView to deliver an excellent user experience. This ensures that, on a wide range of devices, the keyboard never hides the text input, allowing users to type comfortably."
+          description: "For the journaling feature, I used React Native's KeyboardAvoidingView to deliver an excellent user experience. This ensures that, on a wide range of devices, the keyboard never hides the text input, allowing users to type comfortably."
         },
         {
           imageUrl: "/images/prism-stats.png",
@@ -201,7 +201,7 @@ export const allProjects: Project[] = [
       ],
       icon: {
         imageUrl: "/images/prythm-icon.png",
-        description: "The icon symbolizes light representing users’ emotions, guiding them forward. The app was initially named “Lune” (moon-inspired), but I renamed it “Prism” to better align with its concept. The design also takes into account Apple’s Liquid Glass aesthetic, introduced around the same period."
+        description: "The icon symbolizes light representing user's emotions, guiding them forward. The app was initially named “Lune” (moon-inspired), but I renamed it “Prism” to better align with its concept. The design also takes into account Apple's Liquid Glass aesthetic, introduced around the same period."
       }
     },
     userFlow: {
@@ -257,11 +257,11 @@ learnings: {
     },
     goal: {
       objectives: "Build an AI chat app that helps learners practice natural Japanese conversations. Provide personalized learning paths and vocabulary management to boost confidence and fluency.",
-      metrics: "Track progress through MRR, MAU, and learners’ self-reported confidence.",
+      metrics: "Track progress through MRR, MAU, and learner's self-reported confidence.",
       impact: "Enable users to practice Japanese conversations consistently, nurturing a lasting love for Japanese."
     },
       userResearch: {
-    goal: "Identify learners’ pain points in practicing natural Japanese",
+    goal: "Identify learner's pain points in practicing natural Japanese",
     methods: ["User interviews", "Online survey"],
     insights: [
       "Learners felt anxious about making mistakes",
@@ -304,11 +304,11 @@ learnings: {
         "Vocabulary: Quick saving and review of words",
         "Onboarding: Clear guidance for first-time users",
       ],
-      description: "To address learners’ needs for natural Japanese conversation, quick vocabulary management, and easy onboarding, I defined core requirements and chose a tech stack that supports them.",
+      description: "To address learner's needs for natural Japanese conversation, quick vocabulary management, and easy onboarding, I defined core requirements and chose a tech stack that supports them.",
      releaseJourney: [
       {
         imageUrl: "/images/lunatalk-drawing.jpeg",
-        description: "At first, I planned a simple chat app with Luna’s image as the main feature. To move faster, I started with sketches on paper. But after the App Store rejected it for being too similar to a website, I refocused on enhancing the chat experience and adding personalized features."
+        description: "At first, I planned a simple chat app with Luna's image as the main feature. To move faster, I started with sketches on paper. But after the App Store rejected it for being too similar to a website, I refocused on enhancing the chat experience and adding personalized features."
       },
         {
         imageUrl: "/images/lunatalk-journey.png",
@@ -331,7 +331,7 @@ learnings: {
       afterLaunch: [
         {
           imageUrl: "/images/lunatalk-ab-chat.png",
-          description: "On the chat screen, I displayed the number of chats remaining and showed the AI’s “thinking” status with a loading icon. And I moved the report function to an icon and enabled long-press for copying, which improved MAU by 40%."
+          description: "On the chat screen, I displayed the number of chats remaining and showed the AI's “thinking” status with a loading icon. And I moved the report function to an icon and enabled long-press for copying, which improved MAU by 40%."
         },
         {
           imageUrl: "/images/lunatalk-ab-revenue.png",
@@ -344,7 +344,7 @@ learnings: {
       ]
     },
     userFlow: {
-      description: "Using RevenueCat data showing most purchases happen shortly after first launch, I designed LunaTalk’s user journey so trial or purchase can occur within five minutes.",
+      description: "Using RevenueCat data showing most purchases happen shortly after first launch, I designed LunaTalk's user journey so trial or purchase can occur within five minutes.",
       images: "/images/lunatalk-userflow.png",
     },
     solution: {
@@ -357,7 +357,7 @@ learnings: {
     },
     result: {
       outcomes: "Daily active users continue to rise, showing strong engagement. ASO improvements increased CVR by up to 50%, and MRR keeps growing. Careful coding has maintained a 0% crash rate.",
-      solvedChallenge: "Delivered natural, judgment-free Japanese conversation practice. Created a personalized, adaptive AI that matches each learner’s pace and preferences.",
+      solvedChallenge: "Delivered natural, judgment-free Japanese conversation practice. Created a personalized, adaptive AI that matches each learner's pace and preferences.",
       impact: "Users can confidently practice Japanese, making learning fun, consistent, and rewarding."
     },
     feedback: {
