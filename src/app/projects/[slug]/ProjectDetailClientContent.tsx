@@ -138,72 +138,88 @@ export default function ProjectDetailClientContent({
         )}
 
         {/* Persona Section */}
-        {project.persona && (
+        {/* Render the personas section */}
+        {project.persona && project.persona.length > 0 && (
           <div className="mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">
-              Persona: {project.persona.title}
-            </h2>
-            <div className="relative w-full max-w-2xl h-auto mx-auto mb-8 rounded-lg overflow-hidden">
-              <Image
-                src={project.persona.imageUrl}
-                alt={`${project.persona.title} persona image`}
-                width={1000}
-                height={562}
-                layout="responsive"
-                objectFit="contain"
-                className="rounded-lg"
-                unoptimized={true}
-              />
-            </div>
-            <p className="text-lg leading-relaxed mb-8 text-gray-700 dark:text-gray-300 text-center whitespace-pre-line">
-              {project.persona.overview}
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-              {project.persona.attributes.map((attribute, index) => (
-                <div
-                  key={index}
-                  className="p-6 bg-neutral-100 dark:bg-neutral-900 rounded-lg border border-gray-200 dark:border-gray-700"
-                >
-                  <h3 className="text-xl md:text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100 flex items-center">
-                    {attribute.title === "Goal" && (
-                      <FontAwesomeIcon
-                        icon={faBullseye}
-                        className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
-                      />
-                    )}
-                    {attribute.title === "Pain Points" && (
-                      <FontAwesomeIcon
-                        icon={faExclamationTriangle}
-                        className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
-                      />
-                    )}
-                    {attribute.title === "Motivations" && (
-                      <FontAwesomeIcon
-                        icon={faLightbulb}
-                        className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
-                      />
-                    )}
-                    {attribute.title === "Quote" && (
-                      <FontAwesomeIcon
-                        icon={faQuoteLeft}
-                        className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
-                      />
-                    )}
-                    {attribute.title}
-                  </h3>
-                  <p className="text-base text-gray-700 dark:text-gray-300">
-                    {attribute.description}
-                  </p>
+            {/* Loop through and display each persona */}
+            {project.persona.map((persona, index) => (
+              <div key={index} className="mb-16 last:mb-0">
+                {/* Common section title */}
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+                  Persona: {persona.title}
+                </h2>
+                {/* Display persona image */}
+                <div className="relative w-full max-w-2xl h-auto mx-auto mb-8 rounded-lg overflow-hidden">
+                  <Image
+                    src={persona.imageUrl}
+                    alt={`${persona.title} persona image`}
+                    width={1000}
+                    height={562}
+                    layout="responsive"
+                    objectFit="contain"
+                    className="rounded-lg"
+                    unoptimized={true}
+                  />
                 </div>
-              ))}
-            </div>
-            <h3 className="text-xl md:text-2xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100 flex items-center">
+                {/* Display persona overview */}
+                <p className="text-lg leading-relaxed mb-8 text-gray-700 dark:text-gray-300 text-center whitespace-pre-line">
+                  {persona.overview}
+                </p>
+                {/* Display persona attributes */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                  {persona.attributes.map((attribute, attrIndex) => (
+                    <div
+                      key={attrIndex}
+                      className="p-6 bg-neutral-100 dark:bg-neutral-900 rounded-lg border border-gray-200 dark:border-gray-700"
+                    >
+                      <h4 className="text-xl md:text-2xl font-bold mb-2 text-gray-900 dark:text-gray-100 flex items-center">
+                        {attribute.title === "Goal" && (
+                          <FontAwesomeIcon
+                            icon={faBullseye}
+                            className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
+                          />
+                        )}
+                        {attribute.title === "Pain Point" && (
+                          <FontAwesomeIcon
+                            icon={faExclamationTriangle}
+                            className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
+                          />
+                        )}
+                        {attribute.title === "Motivation" && (
+                          <FontAwesomeIcon
+                            icon={faLightbulb}
+                            className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
+                          />
+                        )}
+                        {attribute.title === "Quote" && (
+                          <FontAwesomeIcon
+                            icon={faQuoteLeft}
+                            className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400"
+                          />
+                        )}
+                        {attribute.title}
+                      </h4>
+                      <p className="text-base text-gray-700 dark:text-gray-300">
+                        {attribute.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Render the user journey image if it exists */}
+        {project.userJourney && (
+          <div className="mb-16">
+            <h4 className="text-xl md:text-2xl font-bold mt-12 mb-6 text-gray-900 dark:text-gray-100 flex items-center">
               User Journey
-            </h3>
+            </h4>
             <div className="relative w-full max-w-2xl h-auto mx-auto mb-8 rounded-lg overflow-hidden">
               <Image
-                src={project.persona.userJourney.imgUrl}
-                alt={`${project.persona.title} persona image`}
+                src={project.userJourney.imgUrl}
+                alt={`${project.title} user journey image`}
                 width={1000}
                 height={562}
                 layout="responsive"
@@ -259,7 +275,7 @@ export default function ProjectDetailClientContent({
               </>
             )}
           <h3 className="text-xl md:text-3xl font-bold mt-16 mb-2 text-gray-900 dark:text-gray-100 flex items-center">
-            To Release
+            Release Journey
           </h3>
           {project.process?.releaseJourney &&
             project.process.releaseJourney.length > 0 &&
@@ -301,33 +317,36 @@ export default function ProjectDetailClientContent({
           </p>
 
           {/* After Launch Section */}
-          <div className="mb-16">
-            <h3 className="text-xl md:text-3xl font-bold mt-16 mb-8 text-gray-900 dark:text-gray-100">
-              After Launch
-            </h3>
-            <p className="text-lg leading-relaxed mb-8 text-gray-600 dark:text-gray-300 whitespace-pre-line">
-              {project.process?.afterLaunchDescription}
-            </p>
-            {project.process?.afterLaunch &&
-              project.process.afterLaunch.length > 0 &&
-              project.process.afterLaunch.map((imageItem, index) => (
-                <div key={index} className="mb-8">
-                  <div className="relative w-full h-80 md:h-96 rounded-lg overflow-hidden">
-                    <Image
-                      src={imageItem.imageUrl}
-                      alt={imageItem.description}
-                      layout="fill"
-                      objectFit="contain"
-                      className="rounded-lg"
-                      unoptimized={true}
-                    />
-                  </div>
-                  <p className="text-lg leading-relaxed mt-4 text-gray-700 dark:text-gray-300">
-                    {imageItem.description}
-                  </p>
-                </div>
-              ))}
-          </div>
+          {project.process?.afterLaunchDescription &&
+            project.process.afterLaunchDescription.length > 0 && (
+              <div className="mb-16">
+                <h3 className="text-xl md:text-3xl font-bold mt-16 mb-8 text-gray-900 dark:text-gray-100">
+                  After Launch
+                </h3>
+                <p className="text-lg leading-relaxed mb-8 text-gray-600 dark:text-gray-300 whitespace-pre-line">
+                  {project.process?.afterLaunchDescription}
+                </p>
+                {project.process?.afterLaunch &&
+                  project.process.afterLaunch.length > 0 &&
+                  project.process.afterLaunch.map((imageItem, index) => (
+                    <div key={index} className="mb-8">
+                      <div className="relative w-full h-80 md:h-96 rounded-lg overflow-hidden">
+                        <Image
+                          src={imageItem.imageUrl}
+                          alt={imageItem.description}
+                          layout="fill"
+                          objectFit="contain"
+                          className="rounded-lg"
+                          unoptimized={true}
+                        />
+                      </div>
+                      <p className="text-lg leading-relaxed mt-4 text-gray-700 dark:text-gray-300">
+                        {imageItem.description}
+                      </p>
+                    </div>
+                  ))}
+              </div>
+            )}
         </div>
         {/* User Flow Section */}
         {project.userFlow && (
@@ -335,7 +354,7 @@ export default function ProjectDetailClientContent({
             <h3 className="text-xl md:text-3xl font-bold mt-16 mb-8 text-gray-900 dark:text-gray-100">
               User Flow
             </h3>
-            <div className="relative w-full h-80 md:h-96 rounded-lg overflow-hidden my-8">
+            <div className="relative w-full h-96 md:h-150 rounded-lg overflow-hidden my-8">
               <Image
                 src={project.userFlow.images}
                 alt={`${project.title} User Flow`}

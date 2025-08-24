@@ -29,7 +29,7 @@ export interface Project {
     methods: string[];
     insights: string[];
   };
-  persona?: {
+   persona?: Array<{
     title: string;
     imageUrl: string;
     overview: string;
@@ -37,10 +37,10 @@ export interface Project {
       title: string;
       description: string;
     }>;
-    userJourney: {
+  }>;
+      userJourney?: {
       imgUrl: string;
     };
-  };
   discover?: {
     research: string;
     insights: string;
@@ -102,57 +102,141 @@ export const allProjects: Project[] = [
     slug: "prism-app",
     year: "01",
     title: "Prism",
-    overview: "Prism is a digital wellness and habit tracking mobile application designed for individuals seeking a gentle, self-care-focused approach to building daily routines. It emphasizes peace, personal rhythm, and mental well-being.",
-    description: "Prism helps users build gentle daily self-help habits.",
-    subDescription: "Key features: self-help task lists, calming habit tracking, mood-friendly themes, offline use, and optional kind reminders. Designed for anyone seeking a daily rhythm of self-kindness, especially those at risk of burnout.",
+    overview: "Prism is a Self-help Todo app for users seeking a calming supportive approach to daily routines.",
+    description: "Prism helps users create a rhythm of kindness through gentle habit tracking.",
+    subDescription: "Key features: calm habit tracking, offline privacy, soft themes, and gentle reminders. Designed for individuals seeking emotional balance and burnout prevention.",
     imageUrl: "/images/prythm-cover.png",
-    appStoreLink: "https://apps.apple.com/us/app/prythm-self-care-daily/id6747229609",
+    appStoreLink: "https://apps.apple.com/us/app/prism-self-care-ai/id6747229609",
     googlePlayLink: "https://play.google.com/store/apps/details?id=com.miadesignstudio.prythme",
-    link: "/projects/prism-app", // Prythmはリンクを維持
+    link: "/projects/prism-app",
     challenge: {
-      problem: "Existing habit trackers often feel overwhelming, judgmental, or push users towards burnout, lacking emotional intelligence.",
-      situation: "Users needed a calming, offline-first solution that prioritizes self-compassion over strict productivity metrics.",
-      necessary: "To create a unique app in the wellness tech space that genuinely supports mental health and sustainable habit formation."
+      problem: "Many habit trackers prioritize productivity and strict metrics, causing feelings of guilt or burnout.",
+      situation: "Users wanted a non-judgmental app that could work offline and encourage healthy daily habits.",
+      necessary: "Build a unique, minimalistic app focusing on emotional well-being."
     },
     goal: {
-      objectives: "Design an intuitive, distraction-free app with a gentle user experience. Provide a secure, private (offline-first) environment. Foster consistent, positive self-care habits.",
-      metrics: "User retention for habit tracking (e.g., 7-day, 30-day), positive user reviews, perceived emotional support from the app.",
-      impact: "Enable users to build sustainable self-care routines without pressure, improving daily well-being."
+      objectives: "Create a distraction-free design with soft colors and calming UX flows.",
+      metrics: "Track retention, positive sentiment, and user engagement.",
+      impact: "Help users feel supported while building daily routines."
     },
+    userResearch: {
+      goal: "Understand how burnout affects user's app interactions.",
+      methods: ["User surveys", "1:1 interviews"],
+      insights: [
+        "Users feel anxious when apps are too gamified.",
+        "Privacy and offline access were critical.",
+        "Simplicity improves long-term engagement."
+      ]
+    },
+    persona: [ {
+      title: "Emma, The Caring Mom",
+      imageUrl: "/images/prism-persona1.png",
+      overview: "A caring mother in her 30s who puts her kids first, neglecting her own needs and health.",
+      attributes: [
+        { title: "Goal", description: "Take care of herself while caring for her kids." },
+        { title: "Pain Point", description: "Always puts family first, feels tired, often sick, guilty about self-care." },
+        { title: "Motivation", description: "Stay healthy and happy to be present for her children." },
+        { title: "Quote", description: "I love my kids, but I’m always exhausted. I wish I had time for me." }
+      ],
+    },
+     {
+      title: "Thomas, The Driven Professional",
+      imageUrl: "/images/prism-persona2.png",
+      overview: "A driven man in his 50s who overworks and risks burnout despite his dedication to fitness and career.",
+      attributes: [
+        { title: "Goal", description: "Find balance between work, fitness, and rest." },
+        { title: "Pain Point", description: "Works too much, pushes himself hard, burned out, struggles to relax." },
+        { title: "Motivation", description: "Wants a healthier lifestyle and mental balance." },
+        { title: "Quote", description: "I push myself to succeed, but I’m burning out. I need a break." }
+      ],
+    },
+  ],
+        userJourney: {
+        imgUrl: "/images/prism-userjourney.png"
+      },
     process: {
-      technologyStack: "React Native(Expo), Supabase, RevenueCat, LLM API",
-      toolsUsed: "Figma, Visual Studio Code, GitHub",
+      technologyStack: "React Native (Expo), Supabase, RevenueCat",
+      toolsUsed: "Figma, GitHub, Visual Studio Code",
+      keyRequirements: [ // ★追加
+        "Calming Design: Non-Judgmental visuals and simple layouts to create a safe space for users.",
+        "Instant Start, No Onboarding: Allow users to add tasks or track mood immediately, reducing setup friction.",
+        "Offline-First & Privacy-Focused: Enable functionality offline and protect sensitive mental health data.",
+        "Mood & Habit Tracking Visualization: Show graphs of mood trends and task completion to promote self-awareness.",
+        "AI-Powered Reflection (Premium Feature): Use accumulated data to deliver personalized insights and mental wellness tips.",
+      ],
+      description: "Prism was designed with mental health expertise and insights from my psychiatric hospital training, prioritizing user well-being over trends.",
+      releaseJourney: [
+        {
+          imageUrl: "/images/prism-drawing.jpeg",
+          description: "Market research showed a UX trend: collecting detailed onboarding surveys, scoring user's mental state, and showcasing progress through numbers. However, I intentionally chose no onboarding and no numeric scoring to reduce emotional burden."
+        },
+                {
+          imageUrl: "/images/prism-add-task.png",
+          description: "I simplified the UX by removing the onboarding flow, focusing on a minimalist, streamlined experience."
+        },
+        {
+          imageUrl: "/images/prism-edit-task.png",
+          description: "I also eliminated gestures like long-press and swipe, designing the interface so that users interact through simple icon taps."
+        },
+        {
+          imageUrl: "/images/prism-mood.png",
+          description: "Mood is expressed through colors instead of words, reflecting that emotions are complex and cannot always be captured by labels like “angry” , “sad” and “happy”. This abstract approach creates a gentle, judgment-free experience."
+        },
+                        {
+          imageUrl: "/images/prism-story.png",
+          description: "For the journaling feature, I used React Native’s KeyboardAvoidingView to deliver an excellent user experience. This ensures that, on a wide range of devices, the keyboard never hides the text input, allowing users to type comfortably."
+        },
+        {
+          imageUrl: "/images/prism-stats.png",
+          description: "The Stats screen uses a GitHub-inspired heatmap to visualize task activity and mental patterns. Rather than rewarding darker colors, it helps users find a personal balance, supporting self-awareness and preventing burnout. I also implemented the Calendar screen to visualize activity on a monthly basis."
+        },
+                {
+          imageUrl: "/images/prism-danger.png",
+          description: "All app data is stored locally on the device, ensuring maximum privacy as developers cannot access it. Users can also delete their data at any time."
+        },
+                {
+          imageUrl: "/images/prism-colors.png",
+          description: "I created three themes main, light, and dark using Beige as the main color. Beige symbolizes simplicity, calmness, and neutrality, perfectly reflecting the image of Prism. It is also a trending color, making it both relevant and visually appealing."
+        },
+      ],
       icon: {
         imageUrl: "/images/prythm-icon.png",
-        description: "The app icon features a calming gradient that reflects the app's focus on self-care and mental well-being."
-      },
+        description: "The icon symbolizes light representing users’ emotions, guiding them forward. The app was initially named “Lune” (moon-inspired), but I renamed it “Prism” to better align with its concept. The design also takes into account Apple’s Liquid Glass aesthetic, introduced around the same period."
+      }
+    },
+    userFlow: {
+      images: "/images/prism-userflow.png",
+      description: "Users log daily activities on the Home screen and reflect with AI insights in the Chat screen, helping boost self-esteem. A two-week trial with reminders prevents auto-renewals, and a clear “No payment due now” message keeps the experience stress-free."
     },
     solution: {
       images: [
         {
-          imageUrl: "/images/prythm-pr.png",
-          description: "The main solution image for Prism."
+          imageUrl: "/images/prism-pr.png",
+          description: "Prism was developed with eight screens. App Store/Google Play screenshots were optimized using ASO and SEO principles, achieving over 500 impressions per month without any paid advertising. Try it for free!"
         }
-      ],
+      ]
     },
     result: {
-      outcomes: "Achieved positive user reviews praising its calming effect and privacy features. Consistently high engagement rates for self-care routines compared to competitors.",
-      solvedChallenge: "Successfully created a non-intrusive, supportive habit tracker that addresses the emotional fatigue associated with traditional productivity apps.",
-      impact: "Empowered users to consistently practice self-care, leading to reported improvements in daily well-being and reduced stress."
-    },
-    feedback: {
-      collected: "User feedback was continuously collected through in-app surveys, and direct email communication, focusing on emotional response and feature suggestions.",
-      insights: "Key insights revealed the strong preference for customizable reminders and the positive impact of the offline mode on user peace of mind.",
-      improvements: "Iterative improvements included expanding theme customization and fine-tuning habit completion based on user delight signals."
-    },
-    learnings: {
-      insights: "Deepened understanding of psychological triggers for sustainable habit formation and the critical importance of user privacy in wellness tech.",
-      challengesOvercome: "Successfully navigated the complexities of offline-first data synchronization and ensuring a smooth, non-disruptive user experience.",
-      nextSteps: "Explore integrating more subtle, AI-driven personalized insights (without compromising privacy) to further enhance the self-care journey."
-    },
+  "outcomes": "Daily active users continue to rise, showing strong engagement. ASO improvements increased CVR by up to 70%, and MRR keeps growing. Careful coding has maintained a 0% crash rate.",
+  "solvedChallenge": "Successfully delivered a non-judgmental, privacy first habit tracker that promotes emotional well-being and sustainable daily routines.",
+  "impact": "Demonstrated that emotional UX principles gentle colors, minimal interactions, and offline first privacy significantly improve user retention and satisfaction in wellness apps."
+},
+
+feedback: {
+  "collected": "Gathered through in-app analytics, user surveys, and online meetings.",
+  "insights": "Users appreciated the calm design, offline functionality, and gentle reminders, highlighting the app's ability to reduce anxiety often caused by traditional habit trackers.",
+  "improvements": "Added theme customization and refined reminder settings based on user feedback."
+},
+
+learnings: {
+  "insights": "Designing for emotional well-being requires balancing simplicity with functionality; removing gamification elements increased trust and engagement.",
+  "challengesOvercome": "Implemented seamless offline data storage and syncing while ensuring full privacy protection, which was a technical and UX challenge.",
+  "nextSteps": "Plan to integrate AI-driven, privacy-safe reflections to provide deeper insights without overwhelming users."
+},
+
     testimonial: {
-      text: "Prism is a game-changer for my mental well-being. It's gentle, private, and truly helps me prioritize self-care without the usual pressure of habit trackers.",
-      client: "Satisfied User"
+      text: "Before Prism, I often felt stressed and out of control. Now it helps me relax and feel calm every day.",
+      client: "Robert"
     }
   },
   {
@@ -185,8 +269,7 @@ export const allProjects: Project[] = [
       "Finds traditional textbooks boring"
     ]
   },
-
-    persona: {
+    persona: [ {
       title: "Liz, The Japanese Enthusiast",
       imageUrl: "/images/lunatalk-persona2.png",
       overview: "Liz is a university student passionate about Japanese culture, from anime and manga to city-pop. \nShe has been studying Japanese for a couple of months but struggles with conversational fluency.",
@@ -196,11 +279,11 @@ export const allProjects: Project[] = [
           description: "Find a fun and low-pressure way to practice without the fear of making mistakes."
         },
         {
-          title: "Pain Points",
+          title: "Pain Point",
           description: "Feels embarrassed when he makes mistakes in conversation. Finds traditional textbooks boring and lacks opportunities for real-life practice."
         },
         {
-          title: "Motivations",
+          title: "Motivation",
           description: "Wants to engage with Japanese media and eventually visit Japan and communicate freely. Is motivated by fun, interactive learning experiences."
         },
         {
@@ -208,10 +291,11 @@ export const allProjects: Project[] = [
           description: "“I wish I could talk to someone in Japanese every day, but I don't want to bother anyone or feel judged.”"
         }
       ],
-      userJourney: {
+    },
+  ],
+        userJourney: {
         imgUrl: "/images/lunatalk-user-journey.png"
       },
-    },
     process: {
       technologyStack: "React Native(Expo), Supabase, RevenueCat, LLM API",
       toolsUsed: "Figma, Visual Studio Code, GitHub",
